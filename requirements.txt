@@ -1,0 +1,3 @@
+GitPython
+anthropic
+python-dotenv
