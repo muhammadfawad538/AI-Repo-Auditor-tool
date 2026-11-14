@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from .git_extract import Commit
 
 DEFAULT_MODEL = "gpt-5-nano"
-DEFAULT_EFFORT = "minimal"
+DEFAULT_EFFORT = "low"
 MAX_DIFF_CHARS = 8000
 
 RUBRIC = """You are auditing a single git commit to judge how likely it is that \
