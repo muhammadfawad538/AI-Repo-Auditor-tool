@@ -1,0 +1,108 @@
+from __future__ import annotations
+
+import os
+
+import streamlit as st
+from dotenv import load_dotenv
+
+from auditor.git_extract import extract_commits, resolve_repo
+from auditor.heuristics import score_heuristics
+from auditor.llm_judge import score_with_llm
+
+load_dotenv()
+
+DISAGREEMENT_THRESHOLD = 30.0
+
+st.set_page_config(page_title="AI Usage Authenticity Auditor", layout="wide")
+st.title("AI Usage Authenticity Auditor")
+st.caption("Thin Streamlit wrapper over the `audit` CLI — same heuristic + LLM judge layers, no logic duplicated.")
+
+
+def _sample(commits: list, n: int) -> list:
+    if n <= 0 or n >= len(commits):
+        return commits
+    step = len(commits) / n
+    return [commits[int(i * step)] for i in range(n)]
+
+
+with st.form("audit_form"):
+    repo = st.text_input("Repo path or URL", placeholder=r"C:\path\to\repo  or  https://github.com/org/repo")
+    col1, col2 = st.columns(2)
+    since = col1.text_input("Since (optional)", placeholder="2024-01-01")
+    until = col2.text_input("Until (optional)", placeholder="2015-01-01")
+    max_llm = st.number_input(
+        "Max commits sent to the LLM judge (cost control; 0 = no limit)",
+        min_value=0, value=20, step=5,
+    )
+    submitted = st.form_submit_button("Run Audit")
+
+if submitted:
+    if not repo.strip():
+        st.error("Enter a repo path or URL.")
+        st.stop()
+
+    with st.spinner("Extracting commits..."):
+        repo_path = resolve_repo(repo.strip())
+        commits = extract_commits(repo_path, since=since.strip() or None, until=until.strip() or None)
+
+    if not commits:
+        st.warning("No commits found for that repo/date range.")
+        st.stop()
+
+    st.write(f"Extracted **{len(commits)}** commit(s).")
+    heuristic_results = score_heuristics(commits)
+
+    judge_results = {}
+    if not os.environ.get("OPENAI_API_KEY"):
+        st.warning("OPENAI_API_KEY not set — showing heuristic scores only.")
+    else:
+        llm_commits = _sample(commits, int(max_llm))
+        if len(llm_commits) < len(commits):
+            st.info(f"Sampling {len(llm_commits)} of {len(commits)} commits for the LLM judge to control cost.")
+        else:
+            st.info(f"Sending all {len(llm_commits)} commit(s) to the LLM judge.")
+
+        progress = st.progress(0.0)
+        for i, commit in enumerate(llm_commits, 1):
+            try:
+                judge_results[commit.sha] = score_with_llm(commit)
+            except Exception as e:
+                judge_results[commit.sha] = None
+                st.caption(f"LLM judge failed on `{commit.sha[:10]}`: {e}")
+            progress.progress(i / len(llm_commits))
+        progress.empty()
+
+    rows = []
+    disagreements = 0
+    for c in commits:
+        h = heuristic_results[c.sha]
+        j = judge_results.get(c.sha)
+        j_score = j.score if j else None
+        combined = round((h.score + j_score) / 2, 1) if j_score is not None else round(h.score, 1)
+        disagree = j_score is not None and abs(h.score - j_score) >= DISAGREEMENT_THRESHOLD
+        disagreements += int(disagree)
+        first_line = c.message.splitlines()[0] if c.message else ""
+        snippet = (j.reasoning[:160] + "…") if j and j.reasoning and len(j.reasoning) > 160 else (j.reasoning if j else "")
+        rows.append({
+            "Commit": c.sha[:10],
+            "Message": first_line[:70] + ("…" if len(first_line) > 70 else ""),
+            "Heuristic": round(h.score, 1),
+            "LLM Judge": round(j_score, 1) if j_score is not None else None,
+            "Combined": combined,
+            "Reasoning": snippet,
+            "Disagreement": "Yes" if disagree else "",
+        })
+
+    rows.sort(key=lambda r: r["Combined"], reverse=True)
+
+    st.subheader("Per-commit scores")
+    st.dataframe(rows, width="stretch", hide_index=True)
+
+    st.subheader("Aggregate summary")
+    judged = [r for r in rows if r["LLM Judge"] is not None]
+    overall = sum(r["Combined"] for r in rows) / len(rows)
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Overall repo score", f"{overall:.1f}/100")
+    col2.metric("Commits analyzed", len(rows))
+    col3.metric("Commits judged by LLM", len(judged))
+    col4.metric(f"Layer disagreements (>={DISAGREEMENT_THRESHOLD:.0f} pts)", disagreements)

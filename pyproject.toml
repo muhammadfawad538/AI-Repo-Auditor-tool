@@ -10,6 +10,9 @@ dependencies = [
     "python-dotenv",
 ]
 
+[project.optional-dependencies]
+ui = ["streamlit"]
+
 [project.scripts]
 audit = "auditor.cli:main"
 
