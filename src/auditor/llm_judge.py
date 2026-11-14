@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from .git_extract import Commit
 
 DEFAULT_MODEL = "gpt-5-nano"
+DEFAULT_EFFORT = "minimal"
 MAX_DIFF_CHARS = 8000
 
 RUBRIC = """You are auditing a single git commit to judge how likely it is that \
@@ -45,6 +46,7 @@ class JudgeResult:
     key_signals: list[str]
     truncated: bool
     error: str | None = None
+    usage: dict | None = None
 
 
 def _build_user_prompt(commit: Commit) -> tuple[str, bool]:
@@ -62,6 +64,7 @@ def score_with_llm(
     commit: Commit,
     model: str = DEFAULT_MODEL,
     client: OpenAI | None = None,
+    effort: str = DEFAULT_EFFORT,
 ) -> JudgeResult:
     client = client or OpenAI()
     user_prompt, truncated = _build_user_prompt(commit)
@@ -69,7 +72,7 @@ def score_with_llm(
     response = client.responses.parse(
         model=model,
         max_output_tokens=2048,
-        reasoning={"effort": "minimal"},
+        reasoning={"effort": effort},
         input=[
             {"role": "system", "content": RUBRIC},
             {"role": "user", "content": user_prompt},
@@ -81,9 +84,16 @@ def score_with_llm(
     if parsed is None:
         raise RuntimeError(f"model returned no parsed output (status={response.status})")
 
+    usage = response.usage
     return JudgeResult(
         score=float(parsed.score),
         reasoning=parsed.reasoning,
         key_signals=parsed.key_signals,
         truncated=truncated,
+        usage={
+            "input_tokens": usage.input_tokens,
+            "output_tokens": usage.output_tokens,
+            "reasoning_tokens": usage.output_tokens_details.reasoning_tokens,
+            "total_tokens": usage.total_tokens,
+        },
     )
