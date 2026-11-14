@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-import json
 from dataclasses import dataclass
 
-import anthropic
+from openai import OpenAI
+from pydantic import BaseModel
 
 from .git_extract import Commit
 
-DEFAULT_MODEL = "claude-opus-5-5"
+DEFAULT_MODEL = "gpt-5-nano"
 MAX_DIFF_CHARS = 8000
 
 RUBRIC = """You are auditing a single git commit to judge how likely it is that \
@@ -31,16 +31,11 @@ Judge the diff and message together, and call out any disagreement between them 
 (e.g. the message undersells or oversells the diff). Be specific: cite lines, \
 naming, or structural choices you actually see, not generic impressions."""
 
-JUDGE_SCHEMA = {
-    "type": "object",
-    "properties": {
-        "score": {"type": "integer", "minimum": 0, "maximum": 100},
-        "reasoning": {"type": "string"},
-        "key_signals": {"type": "array", "items": {"type": "string"}},
-    },
-    "required": ["score", "reasoning", "key_signals"],
-    "additionalProperties": False,
-}
+
+class JudgeSchema(BaseModel):
+    score: int
+    reasoning: str
+    key_signals: list[str]
 
 
 @dataclass
@@ -66,24 +61,29 @@ def _build_user_prompt(commit: Commit) -> tuple[str, bool]:
 def score_with_llm(
     commit: Commit,
     model: str = DEFAULT_MODEL,
-    client: anthropic.Anthropic | None = None,
+    client: OpenAI | None = None,
 ) -> JudgeResult:
-    client = client or anthropic.Anthropic()
+    client = client or OpenAI()
     user_prompt, truncated = _build_user_prompt(commit)
 
-    response = client.messages.create(
+    response = client.responses.parse(
         model=model,
-        max_tokens=1024,
-        system=RUBRIC,
-        messages=[{"role": "user", "content": user_prompt}],
-        output_config={"format": {"type": "json_schema", "schema": JUDGE_SCHEMA}},
+        max_output_tokens=2048,
+        reasoning={"effort": "minimal"},
+        input=[
+            {"role": "system", "content": RUBRIC},
+            {"role": "user", "content": user_prompt},
+        ],
+        text_format=JudgeSchema,
     )
 
-    text = next(b.text for b in response.content if b.type == "text")
-    data = json.loads(text)
+    parsed = response.output_parsed
+    if parsed is None:
+        raise RuntimeError(f"model returned no parsed output (status={response.status})")
+
     return JudgeResult(
-        score=float(data["score"]),
-        reasoning=data["reasoning"],
-        key_signals=data["key_signals"],
+        score=float(parsed.score),
+        reasoning=parsed.reasoning,
+        key_signals=parsed.key_signals,
         truncated=truncated,
     )

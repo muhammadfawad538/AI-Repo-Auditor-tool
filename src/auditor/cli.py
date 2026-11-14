@@ -4,7 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
-import anthropic
+import openai
 from dotenv import load_dotenv
 
 from .git_extract import extract_commits, resolve_repo
@@ -35,7 +35,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-llm", action="store_true", help="Skip the LLM judge layer entirely (heuristics only)"
     )
     parser.add_argument(
-        "--model", default=DEFAULT_MODEL, help=f"Anthropic model id for the LLM judge (default: {DEFAULT_MODEL})"
+        "--model", default=DEFAULT_MODEL, help=f"OpenAI model id for the LLM judge (default: {DEFAULT_MODEL})"
     )
     return parser
 
@@ -72,36 +72,40 @@ def main(argv: list[str] | None = None) -> int:
             )
         print(
             f"Calling model '{args.model}' for {len(llm_commits)} commit(s) — "
-            f"this makes {len(llm_commits)} API call(s) against ANTHROPIC_API_KEY. "
+            f"this makes {len(llm_commits)} API call(s) against OPENAI_API_KEY. "
             f"Use --sample to cap this on large repos, or --no-llm to skip it."
         )
-        client = anthropic.Anthropic()
+        client = openai.OpenAI()
         for i, commit in enumerate(llm_commits, 1):
             print(f"  [{i}/{len(llm_commits)}] {commit.sha[:10]}")
             try:
                 judge_results[commit.sha] = score_with_llm(commit, model=args.model, client=client)
-            except anthropic.AuthenticationError:
+            except openai.AuthenticationError:
                 print(
-                    "ANTHROPIC_API_KEY missing or invalid — aborting the LLM judge "
+                    "OPENAI_API_KEY missing or invalid — aborting the LLM judge "
                     "layer. Remaining commits will show heuristic scores only.",
                     file=sys.stderr,
                 )
                 break
-            except anthropic.RateLimitError as e:
+            except openai.RateLimitError as e:
                 judge_results[commit.sha] = JudgeResult(
                     score=None, reasoning="", key_signals=[], truncated=False, error=f"rate limited: {e}"
                 )
-            except anthropic.APIStatusError as e:
+            except openai.BadRequestError as e:
                 judge_results[commit.sha] = JudgeResult(
-                    score=None,
-                    reasoning="",
-                    key_signals=[],
-                    truncated=False,
-                    error=f"API error {e.status_code}: {e.message}",
+                    score=None, reasoning="", key_signals=[], truncated=False, error=f"bad request: {e}"
                 )
-            except anthropic.APIConnectionError as e:
+            except openai.InternalServerError as e:
+                judge_results[commit.sha] = JudgeResult(
+                    score=None, reasoning="", key_signals=[], truncated=False, error=f"server error: {e}"
+                )
+            except openai.APIConnectionError as e:
                 judge_results[commit.sha] = JudgeResult(
                     score=None, reasoning="", key_signals=[], truncated=False, error=f"connection error: {e}"
+                )
+            except openai.APIError as e:
+                judge_results[commit.sha] = JudgeResult(
+                    score=None, reasoning="", key_signals=[], truncated=False, error=f"API error: {e}"
                 )
 
     scores = [

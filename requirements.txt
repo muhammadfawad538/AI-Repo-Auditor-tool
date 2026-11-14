@@ -1,3 +1,4 @@
 GitPython
-anthropic
+openai
+pydantic
 python-dotenv

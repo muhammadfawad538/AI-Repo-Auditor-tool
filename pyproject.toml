@@ -5,7 +5,8 @@ description = "Scores how AI-driven vs hand-written a repo's commit history look
 requires-python = ">=3.11"
 dependencies = [
     "GitPython",
-    "anthropic",
+    "openai",
+    "pydantic",
     "python-dotenv",
 ]
 
