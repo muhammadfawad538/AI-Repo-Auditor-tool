@@ -38,20 +38,25 @@ def resolve_repo(path_or_url: str) -> Path:
 
 
 def extract_commits(
-    repo_path: Path, since: str | None = None, max_commits: int | None = None
+    repo_path: Path,
+    since: str | None = None,
+    until: str | None = None,
+    max_commits: int | None = None,
 ) -> list[Commit]:
     if HAS_GITPYTHON:
-        return _extract_with_gitpython(repo_path, since, max_commits)
-    return _extract_with_subprocess(repo_path, since, max_commits)
+        return _extract_with_gitpython(repo_path, since, until, max_commits)
+    return _extract_with_subprocess(repo_path, since, until, max_commits)
 
 
 def _extract_with_gitpython(
-    repo_path: Path, since: str | None, max_commits: int | None
+    repo_path: Path, since: str | None, until: str | None, max_commits: int | None
 ) -> list[Commit]:
     repo = git.Repo(repo_path)
     kwargs: dict = {}
     if since:
         kwargs["since"] = since
+    if until:
+        kwargs["until"] = until
     if max_commits:
         kwargs["max_count"] = max_commits
 
@@ -103,11 +108,13 @@ def _parse_shortstat(stat: str) -> tuple[int, int, int]:
 
 
 def _extract_with_subprocess(
-    repo_path: Path, since: str | None, max_commits: int | None
+    repo_path: Path, since: str | None, until: str | None, max_commits: int | None
 ) -> list[Commit]:
     log_args = ["log", "--pretty=format:%H%x1f%an%x1f%ae%x1f%at%x1f%B%x1e"]
     if since:
         log_args.append(f"--since={since}")
+    if until:
+        log_args.append(f"--until={until}")
     if max_commits:
         log_args.append(f"-n{max_commits}")
 

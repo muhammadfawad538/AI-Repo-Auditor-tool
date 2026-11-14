@@ -20,6 +20,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("repo", help="Local repo path or a cloneable git URL")
     parser.add_argument("--since", help="Only consider commits after this date, e.g. 2026-01-01")
+    parser.add_argument("--until", help="Only consider commits before this date, e.g. 2015-01-01")
     parser.add_argument("--output", default="report.md", help="Markdown report output path")
     parser.add_argument(
         "--sample",
@@ -54,9 +55,9 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
 
     repo_path = resolve_repo(args.repo)
-    commits = extract_commits(repo_path, since=args.since)
+    commits = extract_commits(repo_path, since=args.since, until=args.until)
     if not commits:
-        print("No commits found for the given repo/--since range.", file=sys.stderr)
+        print("No commits found for the given repo/--since/--until range.", file=sys.stderr)
         return 1
 
     print(f"Extracted {len(commits)} commit(s) from {args.repo}")
@@ -114,7 +115,9 @@ def main(argv: list[str] | None = None) -> int:
     ]
 
     report = render_report(scores, repo_label=args.repo)
-    Path(args.output).write_text(report, encoding="utf-8")
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(report, encoding="utf-8")
     print(f"Report written to {args.output}")
     return 0
 
