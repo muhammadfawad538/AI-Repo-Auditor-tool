@@ -161,6 +161,69 @@ trying a repo known to be AI-heavy from a less "vibe-coding" context,
 since rubiks-cube-solver is itself an unusually clean, well-labeled
 example (explicit `CLAUDE.md`, `AI_COLLABORATION_NOTE.md` references).
 
+---
+
+## 2026-11-14 (effort-level A/B test)
+
+**Did:** Ran the follow-up the previous entry queued: re-scored the
+*same* 30 flask commits at `reasoning.effort: "low"`, then re-ran
+`"minimal"` on the identical 30 commits too (not reusing the first
+run's numbers) so the comparison would be a genuinely matched pair
+rather than comparing against stale numbers. Added an `effort=` kwarg to
+`score_with_llm()` and a `usage` field on `JudgeResult` to make this
+testable and to capture exact token counts per call — committed, since
+it's a small, generically useful addition, not just throwaway test
+code. The one-off comparison script itself stayed in the scratch
+directory, not the repo, since it's not part of the shipped CLI.
+
+**Results:**
+- Mean score dropped from 41.5 (matched `minimal` re-run) to 29.5
+  (`low`) — a real, meaningful shift further into the "mostly human"
+  band on average.
+- Cost: `minimal` = 30 calls / 25,775 total tokens / ~$0.0040;
+  `low` = 30 calls / 30,302 total tokens (5,760 of them hidden
+  reasoning tokens vs. 0 at minimal) / ~$0.0058. Low effort costs
+  ~46% more than minimal — still trivially cheap in absolute terms
+  (under $0.20 per 1,000 commits either way).
+- The self-contradicting commit (`06ed3e1e88`) resolved cleanly at low
+  effort: score 22, reasoning "too trivial to strongly indicate AI
+  generation" — consistent with the number this time. At minimal
+  effort in *this* re-run it scored 60 with hedging, self-questioning
+  reasoning ("leans toward substantial AI involvement? Not strongly:
+  ... Therefore, score around 60") — wobbly, but not the flat
+  contradiction seen in the original run (which had scored it 72).
+- The Armin Ronacher false positive (`952967fcab`) did **not**
+  resolve: 72 (original run) -> 68 (matched minimal re-run) -> 65
+  (low). It drifted down slightly but never crossed out of the
+  rubric's "substantial AI involvement" (51-80) band at any effort
+  level tested. The judge's stated reason stayed the same across all
+  three runs: the clean docstring, `versionadded::` marker, and CHANGES
+  entry. This looks like a genuine rubric/model limitation, not
+  something effort tuning fixes.
+
+**Correction to the previous entry's hypothesis — important:** the
+"score clustering" flagged last time (62 x8, 25 x4, 28 x4, ...) does
+**not** reproduce as an effort-level effect. This matched re-run shows
+**16 unique values out of 30 for *both* minimal and low** — identical
+diversity. Re-running `minimal` itself on the same 30 commits a second
+time produced mostly different scores from the first `minimal` run
+(e.g. `952967fcab`: 72 -> 68; `06ed3e1e88`: 72 -> 60; several others
+shifted 10-25 points). So the earlier clustering was most likely
+ordinary run-to-run sampling variance in the model, not a deterministic
+side effect of `reasoning.effort: "minimal"`. Worth stating plainly:
+**this tool's LLM-judge scores are not fully reproducible run-to-run,
+even with identical settings on identical input.** That's a real
+limitation to disclose in the write-up, independent of which effort
+level is used.
+
+**Next:** Given cost is a non-issue either way, switch the default to
+`"low"` for the real signal-quality improvement (resolves at least one
+clear self-contradiction) — but don't oversell it: it did not fix the
+Armin Ronacher false positive, and run-to-run variance means any single
+comparison run could look better or worse than this one by chance. A
+fairer test would average several repeated runs per effort level
+rather than trusting one sample of 30 each.
+
 <!-- Template for each entry:
 
 ## YYYY-MM-DD
