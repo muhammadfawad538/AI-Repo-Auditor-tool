@@ -224,6 +224,21 @@ comparison run could look better or worse than this one by chance. A
 fairer test would average several repeated runs per effort level
 rather than trusting one sample of 30 each.
 
+---
+
+## 2026-11-14 (switched the default)
+
+**Did:** Changed `DEFAULT_EFFORT` in `llm_judge.py` from `"minimal"` to
+`"low"`, so every future `audit` run uses `low` unless something
+overrides it later. Reasoning: the A/B test above showed `low` resolves
+a genuine self-contradiction (reasoning said "unlikely AI," score said
+72) that `minimal` produced, and the cost difference is negligible in
+absolute terms (~$0.19 vs ~$0.13 per 1,000 commits — both trivially
+cheap). Did not switch anything else: `low` left the one known false
+positive (the disciplined-human-commit-read-as-AI case) unresolved, so
+that stays a documented, open limitation rather than something this
+change claims to fix.
+
 <!-- Template for each entry:
 
 ## YYYY-MM-DD
