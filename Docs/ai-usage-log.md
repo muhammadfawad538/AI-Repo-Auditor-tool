@@ -239,7 +239,43 @@ positive (the disciplined-human-commit-read-as-AI case) unresolved, so
 that stays a documented, open limitation rather than something this
 change claims to fix.
 
-<!-- Template for each entry:
+---
+
+## 2026-11-14 (third test repo — a real mixed-work project)
+
+**Did:** Ran the tool against a third repo,
+`muhammadfawad538/Fawad-Act-angel` — a real client project, not a
+clean "known AI-heavy" or "known human-only" calibration extreme like
+the first two test repos. 132 commits total; heuristics ran on all of
+them, 25 sampled for the LLM judge.
+
+**Results:** Heuristic avg 37.5/100, LLM judge avg 54.9/100 — and the
+highest layer-disagreement rate seen so far: 15 of 25 sampled commits
+(60%) disagreed by >=30 points, vs. 0% on rubiks-cube-solver and ~37%
+on Flask. That tracks: a repo with a real mix of quick UI tweaks, merge
+commits, and some substantial AI-assisted changes is exactly the
+messy middle case the two-layer design exists for, as opposed to the
+two cleaner extremes tested so far.
+
+Two concrete examples worth keeping for the write-up/demo:
+- `b10369975d` ("updated", 1-word message): heuristic 35, LLM judge 75.
+  The judge caught something the heuristic layer structurally can't —
+  extensive inline design-rationale comments and a cohesive, template-like
+  UI pattern that reads AI-influenced, under a commit message that
+  undersells the change entirely.
+- `f8aadede32` ("updated themes", 1-line diff): heuristic 60, LLM judge
+  28 — the *heuristic* layer was arguably wrong here, not the judge. It
+  scored high mostly because the commit landed 21 seconds after the
+  previous one (its timing signal reads fast gaps as AI-like), but the
+  diff was a one-character stray-typo fix the LLM judge correctly read
+  as an ordinary human correction with a mismatched commit message.
+  Useful reminder that the heuristic layer's signals are heuristics, not
+  ground truth either — it can be the wrong one in a disagreement, not
+  just a sanity check against the LLM.
+
+**Next:** Good candidate repo for the Loom demo specifically because
+it's messier and more realistic than the other two — the two-layer
+disagreement story is more visible here than on either clean extreme.
 
 ## YYYY-MM-DD
 
