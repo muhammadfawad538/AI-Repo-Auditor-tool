@@ -51,6 +51,52 @@ this repo (and at least one larger/more AI-heavy repo) to see real LLM
 judge scores and reasoning, and check calibration against known AI-assisted
 vs. hand-written commits.
 
+---
+
+## 2026-11-14
+
+**Did:** Swapped the LLM judge layer from Anthropic to OpenAI, since the
+Anthropic account's credit balance blocked yesterday's attempt and the
+user had an OPENAI_API_KEY ready instead. Picked `gpt-5-nano` after
+checking OpenAI's official pricing page directly — confirmed it as the
+cheapest GA text model ($0.05/$0.40 per 1M tokens) per an explicit ask to
+minimize token cost, rather than guessing a model name. Re-ran the full
+audit (heuristics + LLM judge) against
+`muhammadfawad538/5-Day-Remote-AI-OS-Sprint` end to end successfully —
+first real, non-error LLM judge output this project has produced.
+
+**AI usage:** Claude Code did the research (official OpenAI pricing page,
+Responses API docs) and the full code swap. Caught its own mistake before
+it reached the user: an initial web search for "OpenAI pricing 2026"
+returned SEO-farm pages inventing plausible-sounding model names (e.g.
+fictional-looking "GPT-6 Astra/Sol/Luna" branding); flagged that as
+unreliable rather than reporting it, and went to platform.openai.com
+directly instead. (The official page also listed real `gpt-6-*` models
+with the same naming pattern, so the tier naming itself turned out to be
+real — but the lesson holds: don't trust aggregator pricing pages over
+the vendor's own docs.)
+
+**Failed / scrapped:**
+- First `gpt-5-nano` call against the real repo returned `status:
+  incomplete` with no parsed output — looked like a parsing bug at first.
+  Root cause (confirmed by inspecting `response.usage`): `gpt-5-nano` is a
+  reasoning model that spends hidden "reasoning tokens" out of the same
+  `max_output_tokens` budget before writing the visible answer — 896 of
+  1024 tokens went to invisible reasoning on a test call, leaving nothing
+  for the actual JSON. This is a real, non-obvious cost trap for anyone
+  defaulting to a "nano"/reasoning-tier model without reading the usage
+  breakdown — the sticker price per token looks cheap but hidden
+  reasoning tokens are billed as output tokens at the same rate.
+- Fixed by setting `reasoning: {"effort": "minimal"}`, which dropped
+  reasoning tokens to 0 and cut total output tokens for an identical test
+  call from 1072 to 147 (~7x). This was a strict win for this task, not a
+  quality tradeoff we're still evaluating — scoring/reasoning quality on
+  the test commits looked just as coherent at minimal effort.
+
+**Next:** Watch for score drift if `reasoning.effort` turns out to matter
+on harder/ambiguous commits later — current test set is only 4 commits
+from one small repo, not enough to say minimal effort holds up at scale.
+
 <!-- Template for each entry:
 
 ## YYYY-MM-DD
