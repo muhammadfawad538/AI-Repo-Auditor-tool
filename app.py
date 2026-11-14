@@ -95,8 +95,45 @@ if submitted:
 
     rows.sort(key=lambda r: r["Combined"], reverse=True)
 
+    # Form widgets reset `submitted` to False on every later rerun (e.g. the
+    # commit-detail selectbox below), so the results have to live in
+    # session_state or picking a commit would wipe the whole page.
+    st.session_state["audit_result"] = {
+        "commits": commits,
+        "heuristic_results": heuristic_results,
+        "judge_results": judge_results,
+        "rows": rows,
+        "disagreements": disagreements,
+    }
+
+if "audit_result" in st.session_state:
+    result = st.session_state["audit_result"]
+    commits = result["commits"]
+    heuristic_results = result["heuristic_results"]
+    judge_results = result["judge_results"]
+    rows = result["rows"]
+    disagreements = result["disagreements"]
+
     st.subheader("Per-commit scores")
     st.dataframe(rows, width="stretch", hide_index=True)
+
+    st.subheader("Commit detail")
+    selected = st.selectbox("Pick a commit to see its full reasoning", [r["Commit"] for r in rows])
+    selected_commit = next(c for c in commits if c.sha.startswith(selected))
+    h_detail = heuristic_results[selected_commit.sha]
+    j_detail = judge_results.get(selected_commit.sha)
+
+    with st.expander(f"`{selected}` — {selected_commit.message.splitlines()[0]}", expanded=True):
+        st.write("**Heuristic breakdown:**")
+        for sig in h_detail.signals:
+            st.write(f"- *{sig.name}* ({sig.score:.0f}/100): {sig.reasoning}")
+        if j_detail:
+            st.write(f"**LLM judge score:** {j_detail.score:.0f}/100")
+            st.text_area("Full reasoning", j_detail.reasoning, height=200, disabled=True)
+            if j_detail.key_signals:
+                st.write("**Key signals:** " + ", ".join(j_detail.key_signals))
+        else:
+            st.write("_LLM judge was not run for this commit._")
 
     st.subheader("Aggregate summary")
     judged = [r for r in rows if r["LLM Judge"] is not None]
