@@ -9,8 +9,9 @@ from dotenv import load_dotenv
 
 from .git_extract import extract_commits, resolve_repo
 from .heuristics import score_heuristics
+from .investigator import InvestigationResult, investigate_commit
 from .llm_judge import DEFAULT_MODEL, JudgeResult, score_with_llm
-from .report import CommitScore, render_report
+from .report import DISAGREEMENT_THRESHOLD, CommitScore, render_report
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -37,6 +38,17 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--model", default=DEFAULT_MODEL, help=f"OpenAI model id for the LLM judge (default: {DEFAULT_MODEL})"
+    )
+    parser.add_argument(
+        "--investigate",
+        action="store_true",
+        help="Run the investigator agent on commits where the two layers disagree (extra API calls)",
+    )
+    parser.add_argument(
+        "--max-investigations",
+        type=int,
+        default=5,
+        help="Cap on how many disagreeing commits the agent investigates (default: 5)",
     )
     return parser
 
@@ -109,8 +121,42 @@ def main(argv: list[str] | None = None) -> int:
                     score=None, reasoning="", key_signals=[], truncated=False, error=f"API error: {e}"
                 )
 
+    investigations: dict[str, InvestigationResult] = {}
+    if args.investigate:
+        flagged = [
+            c for c in commits
+            if (j := judge_results.get(c.sha)) is not None
+            and j.score is not None
+            and abs(heuristic_results[c.sha].score - j.score) >= DISAGREEMENT_THRESHOLD
+        ][: args.max_investigations]
+        if flagged:
+            print(
+                f"Investigating {len(flagged)} disagreeing commit(s) with the agent — "
+                f"roughly 2 API calls each against OPENAI_API_KEY (cap: --max-investigations)."
+            )
+            client = openai.OpenAI()
+            for i, commit in enumerate(flagged, 1):
+                print(f"  [{i}/{len(flagged)}] {commit.sha[:10]}")
+                try:
+                    investigations[commit.sha] = investigate_commit(
+                        commit, commits, repo_path,
+                        heuristic_results[commit.sha], judge_results[commit.sha],
+                        client=client, model=args.model,
+                    )
+                except openai.APIError as e:
+                    investigations[commit.sha] = InvestigationResult(
+                        score=None, closer_layer="neither", reasoning="", error=f"API error: {e}"
+                    )
+        else:
+            print("No disagreeing commits to investigate.")
+
     scores = [
-        CommitScore(commit=c, heuristic=heuristic_results[c.sha], judge=judge_results.get(c.sha))
+        CommitScore(
+            commit=c,
+            heuristic=heuristic_results[c.sha],
+            judge=judge_results.get(c.sha),
+            investigation=investigations.get(c.sha),
+        )
         for c in commits
     ]
 

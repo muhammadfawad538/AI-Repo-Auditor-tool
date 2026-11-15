@@ -5,6 +5,7 @@ from datetime import datetime
 
 from .git_extract import Commit
 from .heuristics import HeuristicResult
+from .investigator import InvestigationResult
 from .llm_judge import JudgeResult
 
 DISAGREEMENT_THRESHOLD = 30.0
@@ -54,12 +55,32 @@ class CommitScore:
     commit: Commit
     heuristic: HeuristicResult
     judge: JudgeResult | None
+    investigation: InvestigationResult | None = None
 
 
 def _blended_score(scored: CommitScore) -> float | None:
+    inv = scored.investigation
+    if inv is not None and inv.score is not None:
+        return round(inv.score, 1)
     if scored.judge is None or scored.judge.score is None:
         return None
     return round((scored.heuristic.score + scored.judge.score) / 2, 1)
+
+
+def _render_investigation(inv: InvestigationResult) -> list[str]:
+    if inv.error:
+        return [f"- Investigator: failed — {inv.error}"]
+    lines = [
+        f"- **Investigator ruling: {inv.score:.0f}/100** (closer layer: {inv.closer_layer})",
+        f"  - {inv.reasoning}",
+    ]
+    for item in inv.evidence:
+        lines.append(f"  - Evidence: {item}")
+    lines.append("  - Tool trail:")
+    for i, step in enumerate(inv.steps, 1):
+        args = ", ".join(f"{k}={v}" for k, v in step["args"].items())
+        lines.append(f"    {i}. `{step['tool']}({args})`")
+    return lines
 
 
 def _overall_score(scores: list[CommitScore]) -> float:
@@ -103,6 +124,9 @@ def render_report(scores: list[CommitScore], repo_label: str) -> str:
             f"- Commits where the two layers disagree by >={DISAGREEMENT_THRESHOLD:.0f} "
             f"points: {len(disagreements)}"
         )
+        investigated = [s for s in judged if s.investigation is not None]
+        if investigated:
+            lines.append(f"- Disagreements investigated by the agent: {len(investigated)}")
         if disagreements:
             sha_list = ", ".join(f"`{s.commit.sha[:10]}`" for s in disagreements)
             lines.append("")
@@ -120,7 +144,7 @@ def render_report(scores: list[CommitScore], repo_label: str) -> str:
         c = s.commit
         blended = _blended_score(s)
         lines.append(f"### `{c.sha[:10]}` — {c.message.splitlines()[0][:72]}")
-        lines.append(f"- Author: {c.author} <{c.author_email}> — {c.date.isoformat(timespec='seconds')}")
+        lines.append(f"- Author: {c.author} — {c.date.isoformat(timespec='seconds')}")
         lines.append(f"- Diff size: +{c.insertions}/-{c.deletions} across {c.files_changed} file(s)")
         lines.append(f"- Heuristic score: **{s.heuristic.score:.1f}/100**")
         for sig in s.heuristic.signals:
@@ -138,11 +162,14 @@ def render_report(scores: list[CommitScore], repo_label: str) -> str:
             if s.judge.truncated:
                 lines.append("  - Note: diff was truncated for length before being sent to the LLM judge.")
             if blended is not None:
-                lines.append(f"- Blended score: **{blended}/100**")
+                label = "Resolved score (investigator)" if s.investigation and s.investigation.score is not None else "Blended score"
+                lines.append(f"- {label}: **{blended}/100**")
             if abs(s.heuristic.score - s.judge.score) >= DISAGREEMENT_THRESHOLD:
                 lines.append(
                     "  - Heuristic and LLM layers disagree by "
                     f">={DISAGREEMENT_THRESHOLD:.0f} points — treat this commit's score as uncertain."
                 )
+            if s.investigation is not None:
+                lines.extend(_render_investigation(s.investigation))
         lines.append("")
     return "\n".join(lines)
