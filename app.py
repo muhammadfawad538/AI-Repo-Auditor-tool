@@ -12,10 +12,17 @@ from auditor.llm_judge import score_with_llm
 load_dotenv()
 
 DISAGREEMENT_THRESHOLD = 30.0
+LOGO_PATH = "assets/must_company_logo.png"
 
 st.set_page_config(page_title="AI Usage Authenticity Auditor", layout="wide")
-st.title("AI Usage Authenticity Auditor")
+if os.path.exists(LOGO_PATH):
+    st.logo(LOGO_PATH)
+header_col1, header_col2 = st.columns([1, 8])
+if os.path.exists(LOGO_PATH):
+    header_col1.image(LOGO_PATH, width=72)
+header_col2.title("AI Usage Authenticity Auditor")
 st.caption("Thin Streamlit wrapper over the `audit` CLI — same heuristic + LLM judge layers, no logic duplicated.")
+st.caption("Built for the MUST Company AI Native Super Engineer quest.")
 
 
 def _sample(commits: list, n: int) -> list:
