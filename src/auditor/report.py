@@ -19,12 +19,34 @@ VERDICT_BANDS = [
     (100, "Almost Certainly AI-Generated"),
 ]
 
+BAND_DESCRIPTIONS = {
+    "Hand-Written": "Idiosyncratic style, partial/incremental edits, human-typical shortcuts or typos",
+    "Mostly Human": "Possibly light AI assistance (autocomplete, a snippet), but mostly human-authored",
+    "Substantial AI Involvement": (
+        "Unusually complete/consistent structure, textbook-perfect comments, "
+        "or a message that reads like it was generated with the diff"
+    ),
+    "Almost Certainly AI-Generated": (
+        'Near-complete implementation in one commit, uniform style with no human "mess," '
+        "over-engineered relative to the stated task"
+    ),
+}
+
 
 def verdict_label(score: float) -> str:
     for upper, label in VERDICT_BANDS:
         if score <= upper:
             return label
     return VERDICT_BANDS[-1][1]
+
+
+def _legend_table_markdown() -> str:
+    rows = ["| Score range | Label | Meaning |", "|---|---|---|"]
+    lower = 0
+    for upper, label in VERDICT_BANDS:
+        rows.append(f"| {lower}-{upper} | {label} | {BAND_DESCRIPTIONS[label]} |")
+        lower = upper + 1
+    return "\n".join(rows)
 
 
 @dataclass
@@ -55,6 +77,12 @@ def render_report(scores: list[CommitScore], repo_label: str) -> str:
         "See Known Limitations in directive.md / README.md before treating this as proof._"
     )
     lines.append("")
+    lines.append("<details><summary>What do these labels mean?</summary>")
+    lines.append("")
+    lines.append(_legend_table_markdown())
+    lines.append("")
+    lines.append("</details>")
+    lines.append("")
     lines.append(f"Generated {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"Commits analyzed: {len(scores)}")
     lines.append("")
@@ -75,6 +103,13 @@ def render_report(scores: list[CommitScore], repo_label: str) -> str:
             f"- Commits where the two layers disagree by >={DISAGREEMENT_THRESHOLD:.0f} "
             f"points: {len(disagreements)}"
         )
+        if disagreements:
+            sha_list = ", ".join(f"`{s.commit.sha[:10]}`" for s in disagreements)
+            lines.append("")
+            lines.append(
+                f"> ⚠️ **{len(disagreements)} commit(s) flagged for disagreement** — the blended "
+                f"score is less trustworthy there; see their detail sections below: {sha_list}"
+            )
     else:
         lines.append("- LLM judge layer: not run for this report.")
     lines.append("")

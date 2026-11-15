@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from auditor.git_extract import extract_commits, resolve_repo
 from auditor.heuristics import score_heuristics
 from auditor.llm_judge import score_with_llm
-from auditor.report import verdict_label
+from auditor.report import BAND_DESCRIPTIONS, VERDICT_BANDS, verdict_label
 
 load_dotenv()
 
@@ -98,7 +98,7 @@ if submitted:
             "LLM Judge": round(j_score, 1) if j_score is not None else None,
             "Combined": combined,
             "Reasoning": snippet,
-            "Disagreement": "Yes" if disagree else "",
+            "Disagreement": "⚠️ Yes" if disagree else "",
         })
 
     rows.sort(key=lambda r: r["Combined"], reverse=True)
@@ -128,6 +128,20 @@ if "audit_result" in st.session_state:
         "Based on commit patterns and AI judge reasoning — not a certainty. "
         "See Known Limitations in the README before treating this as proof."
     )
+    with st.expander("What do these labels mean?"):
+        lower = 0
+        band_rows = []
+        for upper, label in VERDICT_BANDS:
+            band_rows.append({"Score range": f"{lower}-{upper}", "Label": label, "Meaning": BAND_DESCRIPTIONS[label]})
+            lower = upper + 1
+        st.table(band_rows)
+
+    if disagreements > 0:
+        st.warning(
+            f"⚠️ {disagreements} commit(s) show the heuristic and LLM-judge layers disagreeing by "
+            f">={DISAGREEMENT_THRESHOLD:.0f} points — the blended score is less trustworthy there; "
+            "look at the commit directly (see **Commit detail** below)."
+        )
 
     st.subheader("Per-commit scores")
     st.dataframe(rows, width="stretch", hide_index=True)
