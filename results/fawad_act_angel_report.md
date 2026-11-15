@@ -12,7 +12,7 @@ Commits analyzed: 132
 ## Per-commit detail
 
 ### `a23fa2a4f8` — Add README
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-11-13T09:58:42
+- Author: Tahir Hameed — 2026-11-13T09:58:42
 - Diff size: +74/-0 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (74 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -34,7 +34,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `083de71d6e` — dark theme in through url
-- Author: Rahul <projects@northerndesigns.net> — 2026-11-06T14:15:22
+- Author: Rahul — 2026-11-06T14:15:22
 - Diff size: +72/-8 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (80 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -42,7 +42,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f54e6e836e` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Rahul <projects@northerndesigns.net> — 2026-11-06T13:38:55
+- Author: Rahul — 2026-11-06T13:38:55
 - Diff size: +51/-5 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (56 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -50,7 +50,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `52c10e1f82` — nav items text color updated
-- Author: Rahul <projects@northerndesigns.net> — 2026-11-06T13:37:42
+- Author: Rahul — 2026-11-06T13:37:42
 - Diff size: +14/-3 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (17 lines), short message (5 words) — no strong signal either way.
@@ -58,7 +58,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `77aba9040d` — Merge pull request #5 from CloudSteer-Technology/fix/otp-send-abuse-limi
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-11-05T22:44:34
+- Author: Tahir Hameed — 2026-11-05T22:44:34
 - Diff size: +51/-5 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (56 lines) paired with a detailed message (20 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -66,7 +66,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `4d2c92bfc7` — Allow the 18 countries the client approved for OTP codes
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-11-05T21:02:24
+- Author: Tahir Hameed — 2026-11-05T21:02:24
 - Diff size: +10/-3 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (13 lines) but a disproportionately detailed message (52 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -77,7 +77,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - Blended score: **55.2/100**
 
 ### `d5be5175da` — Block OTP sends outside US, India and Pakistan and add Twilio Verify rat
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-11-05T15:05:54
+- Author: Tahir Hameed — 2026-11-05T15:05:54
 - Diff size: +44/-5 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (49 lines) paired with a detailed message (72 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -85,7 +85,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `b6f38cd95c` — merge confilict resolved
-- Author: Rahul <projects@northerndesigns.net> — 2026-11-04T17:25:19
+- Author: Rahul — 2026-11-04T17:25:19
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (3 words) — no strong signal either way.
@@ -93,7 +93,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `843a9f0dde` — u
-- Author: Rahul <projects@northerndesigns.net> — 2026-11-04T17:25:04
+- Author: Rahul — 2026-11-04T17:25:04
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (1 words) — no strong signal either way.
@@ -101,7 +101,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `533a77ad54` — merge confilict resolved
-- Author: Rahul <Ashish@northerndesigns.net> — 2026-11-04T17:23:19
+- Author: Rahul — 2026-11-04T17:23:19
 - Diff size: +1752/-779 across 33 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (2531 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -109,7 +109,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `2e69abb77e` — dark theme fixes
-- Author: npltech <projects@northerndesigns.net> — 2026-11-04T14:58:48
+- Author: npltech — 2026-11-04T14:58:48
 - Diff size: +153/-46 across 9 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (199 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -122,7 +122,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `87eb55601a` — dark theme updated
-- Author: npltech <projects@northerndesigns.net> — 2026-11-04T10:44:57
+- Author: npltech — 2026-11-04T10:44:57
 - Diff size: +6/-3 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (9 lines), short message (3 words) — no strong signal either way.
@@ -130,7 +130,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `0dd964d372` — dark theme updated
-- Author: npltech <projects@northerndesigns.net> — 2026-11-03T11:30:28
+- Author: npltech — 2026-11-03T11:30:28
 - Diff size: +391/-334 across 21 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (725 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -138,7 +138,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e5db096bdc` — Privacy policy updation.
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-10-31T22:35:21
+- Author: Radhikesh Kumar — 2026-10-31T22:35:21
 - Diff size: +427/-89 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (516 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -146,7 +146,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `7586a11298` — dark images added
-- Author: npltech <projects@northerndesigns.net> — 2026-10-31T16:06:39
+- Author: npltech — 2026-10-31T16:06:39
 - Diff size: +47/-15 across 7 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (62 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -154,7 +154,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f8aadede32` — updated themes
-- Author: npltech <projects@northerndesigns.net> — 2026-10-31T11:33:09
+- Author: npltech — 2026-10-31T11:33:09
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (2 words) — no strong signal either way.
@@ -166,7 +166,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `2447a70232` — u
-- Author: npltech <projects@northerndesigns.net> — 2026-10-31T11:32:48
+- Author: npltech — 2026-10-31T11:32:48
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (1 words) — no strong signal either way.
@@ -174,7 +174,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `6eac05945e` — dark theme implemented
-- Author: npltech <projects@northerndesigns.net> — 2026-10-31T11:25:34
+- Author: npltech — 2026-10-31T11:25:34
 - Diff size: +1537/-636 across 32 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (2173 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -182,7 +182,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `a4b928e869` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-10-30T17:17:21
+- Author: npltech — 2026-10-30T17:17:21
 - Diff size: +359/-72 across 9 file(s)
 - Heuristic score: **40.0/100**
   - *message_vs_diff_size* (25): Large diff (431 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -190,7 +190,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `2d831e16b8` — title updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-30T17:15:37
+- Author: npltech — 2026-10-30T17:15:37
 - Diff size: +2/-2 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (4 lines), short message (2 words) — no strong signal either way.
@@ -198,7 +198,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `4c8175b421` — Merge pull request #4 from CloudSteer-Technology/fix/share-your-mission-
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-10-29T14:03:32
+- Author: Tahir Hameed — 2026-10-29T14:03:32
 - Diff size: +359/-72 across 9 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (431 lines) paired with a detailed message (14 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -206,7 +206,7 @@ Recommendation: Likely mixed-origin or AI-assisted drafting, but leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `8dc5a0a60a` — Fix Hope Angel form validation and draft reset
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-10-28T21:46:34
+- Author: Tahir Hameed — 2026-10-28T21:46:34
 - Diff size: +359/-72 across 9 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (431 lines) with a short message (8 words) — more typical of a human committing quickly without narrating the change.
@@ -226,7 +226,7 @@ Key signals:
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `76f0174480` — updated1
-- Author: npltech <projects@northerndesigns.net> — 2026-10-26T15:15:35
+- Author: npltech — 2026-10-26T15:15:35
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (1 words) — no strong signal either way.
@@ -234,7 +234,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c70dd10a19` — updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-26T15:15:25
+- Author: npltech — 2026-10-26T15:15:25
 - Diff size: +6/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (7 lines), short message (1 words) — no strong signal either way.
@@ -242,7 +242,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `272bb08c73` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-10-26T15:04:30
+- Author: npltech — 2026-10-26T15:04:30
 - Diff size: +28/-5 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (33 lines), short message (5 words) — no strong signal either way.
@@ -250,7 +250,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `36a2a714f8` — shareable icon added
-- Author: npltech <projects@northerndesigns.net> — 2026-10-26T15:04:14
+- Author: npltech — 2026-10-26T15:04:14
 - Diff size: +6/-0 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (6 lines), short message (3 words) — no strong signal either way.
@@ -258,7 +258,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `a26536e99a` — Store Email-channel leads in our own DB alongside the existing enquiry h
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-10-15T16:52:59
+- Author: Tahir Hameed — 2026-10-15T16:52:59
 - Diff size: +28/-5 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (33 lines) but a disproportionately detailed message (12 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -271,7 +271,7 @@ Disagreement between message and diff: The commit message is concise and high-le
 - Blended score: **57.2/100**
 
 ### `b1ce9f77f6` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-10-15T10:01:29
+- Author: npltech — 2026-10-15T10:01:29
 - Diff size: +109/-3 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (112 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -279,7 +279,7 @@ Disagreement between message and diff: The commit message is concise and high-le
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f6dd49a168` — hero content updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-15T10:00:28
+- Author: npltech — 2026-10-15T10:00:28
 - Diff size: +2/-2 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (4 lines), short message (3 words) — no strong signal either way.
@@ -287,7 +287,7 @@ Disagreement between message and diff: The commit message is concise and high-le
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `19c1a6422f` — Fix Share Your Mission form validation and draft persistence
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-10-14T21:37:45
+- Author: Tahir Hameed — 2026-10-14T21:37:45
 - Diff size: +109/-3 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (112 lines) with a short message (9 words) — more typical of a human committing quickly without narrating the change.
@@ -295,7 +295,7 @@ Disagreement between message and diff: The commit message is concise and high-le
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `44bbaf4643` — employee keyword replaced with specialist
-- Author: npltech <projects@northerndesigns.net> — 2026-10-14T16:27:02
+- Author: npltech — 2026-10-14T16:27:02
 - Diff size: +17/-17 across 9 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (34 lines), short message (5 words) — no strong signal either way.
@@ -303,7 +303,7 @@ Disagreement between message and diff: The commit message is concise and high-le
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `bfb36e5ebf` — title description updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-13T09:20:31
+- Author: npltech — 2026-10-13T09:20:31
 - Diff size: +6/-6 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (12 lines), short message (3 words) — no strong signal either way.
@@ -316,7 +316,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - Blended score: **45.0/100**
 
 ### `260a8bd18d` — ui issues fixed
-- Author: npltech <projects@northerndesigns.net> — 2026-10-12T12:09:47
+- Author: npltech — 2026-10-12T12:09:47
 - Diff size: +248/-37 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (285 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -324,7 +324,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `a1af901acb` — navbar hover effect fixed
-- Author: npltech <projects@northerndesigns.net> — 2026-10-09T10:11:59
+- Author: npltech — 2026-10-09T10:11:59
 - Diff size: +7/-2 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (9 lines), short message (4 words) — no strong signal either way.
@@ -332,7 +332,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `0a927a1303` — seperate page added for share your mission form
-- Author: npltech <projects@northerndesigns.net> — 2026-10-08T10:28:28
+- Author: npltech — 2026-10-08T10:28:28
 - Diff size: +65/-53 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (118 lines) with a short message (8 words) — more typical of a human committing quickly without narrating the change.
@@ -340,7 +340,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `fab6384890` — navbar updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-07T10:32:14
+- Author: npltech — 2026-10-07T10:32:14
 - Diff size: +43/-8 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (51 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -348,7 +348,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9bc0d531cf` — hover effect glitch in menu bar fixed
-- Author: npltech <projects@northerndesigns.net> — 2026-10-06T10:45:08
+- Author: npltech — 2026-10-06T10:45:08
 - Diff size: +31/-2 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (33 lines), short message (7 words) — no strong signal either way.
@@ -360,7 +360,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `6b9c445e82` — ui fixes on hope angle page
-- Author: npltech <projects@northerndesigns.net> — 2026-10-06T10:34:21
+- Author: npltech — 2026-10-06T10:34:21
 - Diff size: +148/-37 across 4 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (185 lines) with a short message (6 words) — more typical of a human committing quickly without narrating the change.
@@ -368,7 +368,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `4d115f85cf` — updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T18:38:37
+- Author: npltech — 2026-10-03T18:38:37
 - Diff size: +2/-2 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (4 lines), short message (1 words) — no strong signal either way.
@@ -376,7 +376,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `329f225122` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T18:35:46
+- Author: npltech — 2026-10-03T18:35:46
 - Diff size: +29/-29 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (58 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -384,7 +384,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ce0c2a9487` — content updated on main
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T18:35:26
+- Author: npltech — 2026-10-03T18:35:26
 - Diff size: +163/-159 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (322 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -392,7 +392,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `4d18c34100` — updated nav
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T18:00:06
+- Author: npltech — 2026-10-03T18:00:06
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (2 words) — no strong signal either way.
@@ -400,7 +400,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ce6603b46c` — known source added for get-started page
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T17:12:11
+- Author: npltech — 2026-10-03T17:12:11
 - Diff size: +55/-10 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (65 lines) with a short message (6 words) — more typical of a human committing quickly without narrating the change.
@@ -413,7 +413,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `28626a9977` — hire an angel version 2 dropdown implemented
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T16:50:55
+- Author: npltech — 2026-10-03T16:50:55
 - Diff size: +190/-3 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (193 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -421,7 +421,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `a5b3879154` — The Share Your Mission form now submits to the Act Angel AI WEB backend.
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-10-03T15:06:56
+- Author: Radhikesh Kumar — 2026-10-03T15:06:56
 - Diff size: +29/-29 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (58 lines) paired with a detailed message (260 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -429,7 +429,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ccc08c85d5` — nav bar hire an angel dropdown multiple ui versions added
-- Author: npltech <projects@northerndesigns.net> — 2026-10-03T11:33:13
+- Author: npltech — 2026-10-03T11:33:13
 - Diff size: +781/-0 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (781 lines) with a short message (10 words) — more typical of a human committing quickly without narrating the change.
@@ -437,7 +437,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `933d2ea416` — updated hire angel menu items
-- Author: npltech <projects@northerndesigns.net> — 2026-10-01T17:38:43
+- Author: npltech — 2026-10-01T17:38:43
 - Diff size: +6/-5 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (11 lines), short message (5 words) — no strong signal either way.
@@ -445,7 +445,7 @@ Disagreement note: The commit message suggests a small change, but the diff show
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `b10369975d` — updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-01T17:25:58
+- Author: npltech — 2026-10-01T17:25:58
 - Diff size: +22/-12 across 3 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (34 lines), short message (1 words) — no strong signal either way.
@@ -466,7 +466,7 @@ Disagreement between message and diff: The message “updated” does not hint a
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `48c556b363` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-10-01T17:12:00
+- Author: npltech — 2026-10-01T17:12:00
 - Diff size: +231/-24 across 3 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (255 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -474,7 +474,7 @@ Disagreement between message and diff: The message “updated” does not hint a
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `250e613d2d` — navbar updated
-- Author: npltech <projects@northerndesigns.net> — 2026-10-01T17:11:40
+- Author: npltech — 2026-10-01T17:11:40
 - Diff size: +0/-39 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (39 lines), short message (2 words) — no strong signal either way.
@@ -482,7 +482,7 @@ Disagreement between message and diff: The message “updated” does not hint a
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `8bee1a3b84` — Fixed the crash: share-your-mission-form.tsx had a dangling setMailtoHre
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-10-01T16:25:35
+- Author: Radhikesh Kumar — 2026-10-01T16:25:35
 - Diff size: +25/-112 across 2 file(s)
 - Heuristic score: **65.0/100**
   - *message_vs_diff_size* (75): Large diff (137 lines) paired with a detailed message (197 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -490,7 +490,7 @@ Disagreement between message and diff: The message “updated” does not hint a
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e1073a8196` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-10-01T16:15:58
+- Author: Radhikesh Kumar — 2026-10-01T16:15:58
 - Diff size: +350/-65 across 12 file(s)
 - Heuristic score: **40.0/100**
   - *message_vs_diff_size* (25): Large diff (415 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -498,7 +498,7 @@ Disagreement between message and diff: The message “updated” does not hint a
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `02c6cdf3c4` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-10-01T16:13:52
+- Author: Radhikesh Kumar — 2026-10-01T16:13:52
 - Diff size: +353/-146 across 7 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (499 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -513,7 +513,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `299a1f4615` — Wire the NPO intake form to a real backend, alongside the mailto brief
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-30T21:42:15
+- Author: Tahir Hameed — 2026-09-30T21:42:15
 - Diff size: +156/-1 across 3 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (157 lines) paired with a detailed message (74 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -521,7 +521,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `4497913256` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: npltech <projects@northerndesigns.net> — 2026-09-30T09:50:14
+- Author: npltech — 2026-09-30T09:50:14
 - Diff size: +147/-16 across 7 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (163 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -529,7 +529,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `3f22a6082f` — hire an angel dropdown menu ui fixes
-- Author: npltech <projects@northerndesigns.net> — 2026-09-30T09:49:58
+- Author: npltech — 2026-09-30T09:49:58
 - Diff size: +13/-8 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (21 lines), short message (7 words) — no strong signal either way.
@@ -537,7 +537,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `34eb0e0f96` — Restore API-safe trailing-slash handling via proxy.ts
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-29T21:33:53
+- Author: Tahir Hameed — 2026-09-29T21:33:53
 - Diff size: +52/-17 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (69 lines) paired with a detailed message (62 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -545,7 +545,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e48a269147` — Fix the trailing-slash redirect looping every page to itself
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-29T20:10:54
+- Author: Tahir Hameed — 2026-09-29T20:10:54
 - Diff size: +16/-37 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (53 lines) with a short message (9 words) — more typical of a human committing quickly without narrating the change.
@@ -553,7 +553,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c7f6c35ae6` — Open Hope Angel outbound calls with a fixed greeting
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-29T18:43:15
+- Author: Tahir Hameed — 2026-09-29T18:43:15
 - Diff size: +36/-5 across 4 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (41 lines) with a short message (9 words) — more typical of a human committing quickly without narrating the change.
@@ -565,7 +565,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `52491f81ac` — Fix resend sending the same OTP code + stop the trailing-slash redirect 
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-29T18:02:07
+- Author: Tahir Hameed — 2026-09-29T18:02:07
 - Diff size: +96/-10 across 4 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (106 lines) paired with a detailed message (16 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -573,7 +573,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e908f24b5c` — the person pages hero section updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-29T14:40:33
+- Author: npltech — 2026-09-29T14:40:33
 - Diff size: +5/-5 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (10 lines), short message (6 words) — no strong signal either way.
@@ -581,7 +581,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `eab3c2ef46` — Updated AdminOrganizationCreate.tsx the same way: outer form is now a re
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-29T13:03:23
+- Author: Radhikesh Kumar — 2026-09-29T13:03:23
 - Diff size: +149/-60 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (209 lines) paired with a detailed message (48 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -589,7 +589,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ad2d1b0253` — hope ange page updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-28T15:42:55
+- Author: npltech — 2026-09-28T15:42:55
 - Diff size: +295/-143 across 6 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (438 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -597,7 +597,7 @@ Commit message vs. diff: The message mentions merging from main and a narrative 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `8514ddac44` — u
-- Author: npltech <projects@northerndesigns.net> — 2026-09-28T14:25:01
+- Author: npltech — 2026-09-28T14:25:01
 - Diff size: +1/-2 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (3 lines), short message (1 words) — no strong signal either way.
@@ -610,7 +610,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - Blended score: **31.5/100**
 
 ### `962ce2e336` — Minor fixes
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-27T23:25:44
+- Author: Radhikesh Kumar — 2026-09-27T23:25:44
 - Diff size: +45/-44 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (89 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -618,7 +618,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9829d9a6fc` — Requested changes.
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-27T22:49:49
+- Author: Radhikesh Kumar — 2026-09-27T22:49:49
 - Diff size: +631/-257 across 6 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (888 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -626,7 +626,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `868d58c413` — ACTANGEL_EMAIL_ASSISTANT_ID
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-27T20:55:18
+- Author: Radhikesh Kumar — 2026-09-27T20:55:18
 - Diff size: +956/-98 across 10 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (1054 lines) with a short message (1 words) — more typical of a human committing quickly without narrating the change.
@@ -634,7 +634,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9a3b5dbdea` — made dropdaown menu opaque
-- Author: npltech <projects@northerndesigns.net> — 2026-09-22T14:44:46
+- Author: npltech — 2026-09-22T14:44:46
 - Diff size: +18/-3 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (21 lines), short message (4 words) — no strong signal either way.
@@ -642,7 +642,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `d0f175fa5c` — phone number added
-- Author: npltech <projects@northerndesigns.net> — 2026-09-21T17:53:34
+- Author: npltech — 2026-09-21T17:53:34
 - Diff size: +6/-0 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (6 lines), short message (3 words) — no strong signal either way.
@@ -653,7 +653,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - Blended score: **51.2/100**
 
 ### `e74f87ebe4` — tools section icons updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-21T17:47:42
+- Author: npltech — 2026-09-21T17:47:42
 - Diff size: +61/-23 across 16 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (84 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -661,7 +661,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `606b6e0596` — tools section updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-21T15:34:34
+- Author: npltech — 2026-09-21T15:34:34
 - Diff size: +309/-43 across 17 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (352 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -669,7 +669,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ad072ded84` — ui update of all your tools section
-- Author: npltech <projects@northerndesigns.net> — 2026-09-19T10:24:45
+- Author: npltech — 2026-09-19T10:24:45
 - Diff size: +48/-168 across 15 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (216 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -677,7 +677,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e58bab10ab` — updated circular ring section
-- Author: npltech <projects@northerndesigns.net> — 2026-09-18T14:25:06
+- Author: npltech — 2026-09-18T14:25:06
 - Diff size: +2/-3 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (5 lines), short message (4 words) — no strong signal either way.
@@ -685,7 +685,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9e9a041619` — hire an angel 4 pages hero section blank space covered
-- Author: npltech <projects@northerndesigns.net> — 2026-09-18T09:32:34
+- Author: npltech — 2026-09-18T09:32:34
 - Diff size: +14/-2 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (16 lines), short message (10 words) — no strong signal either way.
@@ -696,7 +696,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - Blended score: **40.0/100**
 
 ### `325cc7a96d` — ui issues fixed
-- Author: npltech <projects@northerndesigns.net> — 2026-09-18T09:19:16
+- Author: npltech — 2026-09-18T09:19:16
 - Diff size: +8/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (9 lines), short message (3 words) — no strong signal either way.
@@ -704,7 +704,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `5d4eee3d3e` — ui updates
-- Author: npltech <projects@northerndesigns.net> — 2026-09-17T10:58:40
+- Author: npltech — 2026-09-17T10:58:40
 - Diff size: +241/-208 across 19 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (449 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -712,7 +712,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `2e6c1f8b13` — email updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T21:37:43
+- Author: npltech — 2026-09-16T21:37:43
 - Diff size: +12/-12 across 6 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (24 lines), short message (2 words) — no strong signal either way.
@@ -720,7 +720,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9e8fc39b3d` — Merge branch 'staging'
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T21:28:34
+- Author: npltech — 2026-09-16T21:28:34
 - Diff size: +1256/-315 across 22 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (1571 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -728,7 +728,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `0495ae06e6` — changes updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T21:27:35
+- Author: npltech — 2026-09-16T21:27:35
 - Diff size: +151/-118 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (269 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -736,7 +736,7 @@ Disagreement between message and diff: The message is extremely terse and uninfo
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `79612b2666` — updated live preview image
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T18:43:03
+- Author: npltech — 2026-09-16T18:43:03
 - Diff size: +43/-13 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (56 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -759,7 +759,7 @@ Overall: the changes are substantial and stylistically polished, leaning toward 
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `b021c2d019` — profile images made zoomed out
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T18:08:38
+- Author: npltech — 2026-09-16T18:08:38
 - Diff size: +4/-4 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (8 lines), short message (5 words) — no strong signal either way.
@@ -767,7 +767,7 @@ Overall: the changes are substantial and stylistically polished, leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c5d689d971` — update live preview card
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T17:20:24
+- Author: npltech — 2026-09-16T17:20:24
 - Diff size: +116/-106 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (222 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -775,7 +775,7 @@ Overall: the changes are substantial and stylistically polished, leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `b5ea9eb59e` — new Progress with Purpose page created
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T14:27:37
+- Author: npltech — 2026-09-16T14:27:37
 - Diff size: +187/-0 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (187 lines) with a short message (6 words) — more typical of a human committing quickly without narrating the change.
@@ -783,7 +783,7 @@ Overall: the changes are substantial and stylistically polished, leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `211fafa322` — ui updates implemented
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T11:55:50
+- Author: npltech — 2026-09-16T11:55:50
 - Diff size: +12/-6 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (18 lines), short message (3 words) — no strong signal either way.
@@ -791,7 +791,7 @@ Overall: the changes are substantial and stylistically polished, leaning toward 
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `704b5ed414` — ui fixes completed
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T11:33:17
+- Author: npltech — 2026-09-16T11:33:17
 - Diff size: +145/-70 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (215 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -813,7 +813,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `f376e76bfc` — u
-- Author: npltech <projects@northerndesigns.net> — 2026-09-16T09:29:29
+- Author: npltech — 2026-09-16T09:29:29
 - Diff size: +1/-3 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (4 lines), short message (1 words) — no strong signal either way.
@@ -821,7 +821,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `13a6422d76` — update
-- Author: npltech <projects@northerndesigns.net> — 2026-09-15T10:51:37
+- Author: npltech — 2026-09-15T10:51:37
 - Diff size: +1/-0 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (1 lines), short message (1 words) — no strong signal either way.
@@ -829,7 +829,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `641fc02b86` — Merge branch 'main' into staging
-- Author: npltech <projects@northerndesigns.net> — 2026-09-15T10:39:39
+- Author: npltech — 2026-09-15T10:39:39
 - Diff size: +419/-136 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (25): Large diff (555 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -837,7 +837,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `d9a9029bdc` — second animation removed
-- Author: npltech <projects@northerndesigns.net> — 2026-09-15T10:39:08
+- Author: npltech — 2026-09-15T10:39:08
 - Diff size: +420/-138 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (558 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -845,7 +845,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `799fa400e7` — 4 persona pages updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T16:10:07
+- Author: npltech — 2026-09-11T16:10:07
 - Diff size: +300/-104 across 14 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (404 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -858,7 +858,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `a9a0dc60e5` — navbar updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T15:33:33
+- Author: npltech — 2026-09-11T15:33:33
 - Diff size: +177/-57 across 4 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (234 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -866,7 +866,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `787e26abc6` — staging branch updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T14:37:22
+- Author: npltech — 2026-09-11T14:37:22
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (3 words) — no strong signal either way.
@@ -874,7 +874,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9b693719a9` — staging branch update testing
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T14:36:06
+- Author: npltech — 2026-09-11T14:36:06
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (4 words) — no strong signal either way.
@@ -882,7 +882,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `ef510bad7f` — staging branch created
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T14:23:56
+- Author: npltech — 2026-09-11T14:23:56
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (3 words) — no strong signal either way.
@@ -890,7 +890,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c17bc089b5` — updates
-- Author: npltech <projects@northerndesigns.net> — 2026-09-11T14:23:28
+- Author: npltech — 2026-09-11T14:23:28
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (1 words) — no strong signal either way.
@@ -898,7 +898,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `6357eec87a` — Merge pull request #3 from CloudSteer-Technology/feature/WhatsApp
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-10T17:32:01
+- Author: Radhikesh Kumar — 2026-09-10T17:32:01
 - Diff size: +53/-16 across 4 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (69 lines) with a short message (8 words) — more typical of a human committing quickly without narrating the change.
@@ -909,7 +909,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - Blended score: **13.8/100**
 
 ### `366d47bc28` — Email functionality implementation.
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-10T16:08:08
+- Author: Radhikesh Kumar — 2026-09-10T16:08:08
 - Diff size: +50/-13 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (63 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -917,7 +917,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `7a8dd76d63` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-10T11:40:23
+- Author: Radhikesh Kumar — 2026-09-10T11:40:23
 - Diff size: +304/-90 across 8 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (394 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -925,7 +925,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `b2c867f3a4` — code merged with npl_dev
-- Author: npltech <projects@northerndesigns.net> — 2026-09-08T10:04:35
+- Author: npltech — 2026-09-08T10:04:35
 - Diff size: +1/-2 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (3 lines), short message (4 words) — no strong signal either way.
@@ -933,7 +933,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `5eaeaba296` — Merge branch 'main' into npl_dev
-- Author: npltech <projects@northerndesigns.net> — 2026-09-08T10:01:24
+- Author: npltech — 2026-09-08T10:01:24
 - Diff size: +581/-374 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (955 lines) with a short message (5 words) — more typical of a human committing quickly without narrating the change.
@@ -941,7 +941,7 @@ Disagreement between message and diff: The commit message “ui fixes completed�
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f5ffcfa2e8` — content updated on hire an angel pages
-- Author: npltech <projects@northerndesigns.net> — 2026-09-07T14:35:24
+- Author: npltech — 2026-09-07T14:35:24
 - Diff size: +303/-88 across 7 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (391 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -967,7 +967,7 @@ Specific examples from the diff:
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `dca75e276b` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-07T11:38:07
+- Author: Radhikesh Kumar — 2026-09-07T11:38:07
 - Diff size: +437/-597 across 8 file(s)
 - Heuristic score: **40.0/100**
   - *message_vs_diff_size* (25): Large diff (1034 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -975,7 +975,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `75d2d635aa` — pnpm-lock.yaml — resolves next to 16.3.4 (matches package.json's ^16.3.4
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-07T11:32:13
+- Author: Radhikesh Kumar — 2026-09-07T11:32:13
 - Diff size: +230/-193 across 3 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (423 lines) paired with a detailed message (42 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -983,7 +983,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c8a48e0b25` — minar changes
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-07T11:16:41
+- Author: Radhikesh Kumar — 2026-09-07T11:16:41
 - Diff size: +352/-182 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (534 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -991,7 +991,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `9321581f79` — Merge pull request #2 from CloudSteer-Technology/npl_dev
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-02T17:19:19
+- Author: Radhikesh Kumar — 2026-09-02T17:19:19
 - Diff size: +33/-13 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (46 lines) with a short message (11 words) — more typical of a human committing quickly without narrating the change.
@@ -999,7 +999,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `1f00dab8c4` — Never Miss Another Lead animation line updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-02T14:55:13
+- Author: npltech — 2026-09-02T14:55:13
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (7 words) — no strong signal either way.
@@ -1011,7 +1011,7 @@ Specific examples from the diff:
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `c3669f45ea` — Never Miss Another Lead animation line updated
-- Author: npltech <projects@northerndesigns.net> — 2026-09-02T14:55:01
+- Author: npltech — 2026-09-02T14:55:01
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (7 words) — no strong signal either way.
@@ -1019,7 +1019,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c10a7fbd57` — Never Miss Another Lead animation line updated
-- Author: Rahul <Ashish@northerndesigns.net> — 2026-09-02T14:49:32
+- Author: Rahul — 2026-09-02T14:49:32
 - Diff size: +33/-13 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (46 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -1027,7 +1027,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f41fc4298e` — Minor Fixes
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-09-02T12:32:11
+- Author: Tahir Hameed — 2026-09-02T12:32:11
 - Diff size: +4/-350 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (354 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -1035,7 +1035,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `475d326521` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-01T21:23:26
+- Author: Radhikesh Kumar — 2026-09-01T21:23:26
 - Diff size: +1575/-719 across 29 file(s)
 - Heuristic score: **40.0/100**
   - *message_vs_diff_size* (25): Large diff (2294 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -1043,7 +1043,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `67af31a1de` — Project name changes
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-09-01T21:21:49
+- Author: Radhikesh Kumar — 2026-09-01T21:21:49
 - Diff size: +3/-2 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (5 lines), short message (3 words) — no strong signal either way.
@@ -1054,7 +1054,7 @@ Specific examples from the diff:
 - Blended score: **30.0/100**
 
 ### `3d61dac56c` — Add tracking for form validation failures, OTP send/resend failures, and
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-31T19:06:31
+- Author: Tahir Hameed — 2026-08-31T19:06:31
 - Diff size: +25/-6 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (31 lines) but a disproportionately detailed message (12 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -1062,7 +1062,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `dc13aa1d7c` — Fix pnpm-lock.yaml out of sync with posthog-js dependency, unblocking de
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-31T18:28:04
+- Author: Tahir Hameed — 2026-08-31T18:28:04
 - Diff size: +100/-0 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (100 lines) with a short message (10 words) — more typical of a human committing quickly without narrating the change.
@@ -1070,7 +1070,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `566bcfefe3` — Merge pull request #1 from CloudSteer-Technology/develop
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-31T18:14:20
+- Author: Tahir Hameed — 2026-08-31T18:14:20
 - Diff size: +64/-5 across 5 file(s)
 - Heuristic score: **77.5/100**
   - *message_vs_diff_size* (75): Large diff (69 lines) paired with a detailed message (17 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -1078,7 +1078,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `8fab3e7729` — Add PostHog event tracking for CTA clicks, form funnel, and time-on-page
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-31T18:13:31
+- Author: Tahir Hameed — 2026-08-31T18:13:31
 - Diff size: +64/-5 across 5 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (69 lines) with a short message (11 words) — more typical of a human committing quickly without narrating the change.
@@ -1086,7 +1086,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `77c61bb3e2` — Add Microsoft Clarity and PostHog analytics, fix Done button doing nothi
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-26T23:38:33
+- Author: Tahir Hameed — 2026-08-26T23:38:33
 - Diff size: +78/-10 across 4 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (88 lines) paired with a detailed message (13 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -1094,7 +1094,7 @@ Specific examples from the diff:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `1e2ecf40bd` — Fix channel-aware success screen, add WhatsApp auto-redirect, add missin
-- Author: Tahir Hameed <thetronai@gmail.com> — 2026-08-26T16:28:23
+- Author: Tahir Hameed — 2026-08-26T16:28:23
 - Diff size: +39/-4 across 1 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (43 lines) with a short message (11 words) — more typical of a human committing quickly without narrating the change.
@@ -1114,7 +1114,7 @@ Key signals:
   - Heuristic and LLM layers disagree by >=30 points — treat this commit's score as uncertain.
 
 ### `dcbd359d35` — Audit fixes
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-08-26T15:56:00
+- Author: Radhikesh Kumar — 2026-08-26T15:56:00
 - Diff size: +230/-190 across 2 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (420 lines) with a short message (2 words) — more typical of a human committing quickly without narrating the change.
@@ -1122,7 +1122,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `58e0ee0762` — contact, get started, and 4 persona pages added
-- Author: northern <projects@northerndesigns.net> — 2026-08-26T12:31:10
+- Author: northern — 2026-08-26T12:31:10
 - Diff size: +687/-549 across 18 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (1236 lines) with a short message (8 words) — more typical of a human committing quickly without narrating the change.
@@ -1130,7 +1130,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `f73e1e655d` — email updated
-- Author: northern <projects@northerndesigns.net> — 2026-08-26T09:21:48
+- Author: northern — 2026-08-26T09:21:48
 - Diff size: +6/-6 across 3 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (12 lines), short message (2 words) — no strong signal either way.
@@ -1138,7 +1138,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `e6369f8c42` — behind-the-angels page heading updated
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T17:11:27
+- Author: northern — 2026-08-25T17:11:27
 - Diff size: +36/-38 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (74 lines) with a short message (4 words) — more typical of a human committing quickly without narrating the change.
@@ -1146,7 +1146,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `7b240eae78` — pragaraph updated on behind the angles page
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T16:02:15
+- Author: northern — 2026-08-25T16:02:15
 - Diff size: +2/-3 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (5 lines), short message (7 words) — no strong signal either way.
@@ -1157,7 +1157,7 @@ Key signals:
 - Blended score: **31.5/100**
 
 ### `8542f1b1cb` — footer ui updated
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T15:40:02
+- Author: northern — 2026-08-25T15:40:02
 - Diff size: +84/-84 across 3 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (168 lines) with a short message (3 words) — more typical of a human committing quickly without narrating the change.
@@ -1165,7 +1165,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `fcb5dd02c2` — new pages - terms and privacy added
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T15:22:33
+- Author: northern — 2026-08-25T15:22:33
 - Diff size: +637/-200 across 15 file(s)
 - Heuristic score: **27.5/100**
   - *message_vs_diff_size* (25): Large diff (837 lines) with a short message (7 words) — more typical of a human committing quickly without narrating the change.
@@ -1173,7 +1173,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `cc7da808f1` — Merge branch 'main' of https://github.com/CloudSteer-Technology/act-ange
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T10:44:00
+- Author: northern — 2026-08-25T10:44:00
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (5 words) — no strong signal either way.
@@ -1181,7 +1181,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `eb73088a32` — text updated
-- Author: northern <projects@northerndesigns.net> — 2026-08-25T10:39:31
+- Author: northern — 2026-08-25T10:39:31
 - Diff size: +7/-7 across 2 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (14 lines), short message (2 words) — no strong signal either way.
@@ -1189,7 +1189,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `a3a9416127` — Address Update
-- Author: Northern Planet LLC <projects@northerndesigns.net> — 2026-08-24T23:23:52
+- Author: Northern Planet LLC — 2026-08-24T23:23:52
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (2 words) — no strong signal either way.
@@ -1200,7 +1200,7 @@ Key signals:
 - Blended score: **37.8/100**
 
 ### `5833388806` — Address Added at the Footer.
-- Author: Northern Planet LLC <projects@northerndesigns.net> — 2026-08-24T23:21:17
+- Author: Northern Planet LLC — 2026-08-24T23:21:17
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (5 words) — no strong signal either way.
@@ -1208,7 +1208,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `2738af7fdb` — policy link updated for new page
-- Author: northern <projects@northerndesigns.net> — 2026-08-24T15:36:45
+- Author: northern — 2026-08-24T15:36:45
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **60.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (6 words) — no strong signal either way.
@@ -1216,7 +1216,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `7c345785e0` — policy link updated
-- Author: northern <projects@northerndesigns.net> — 2026-08-24T15:36:00
+- Author: northern — 2026-08-24T15:36:00
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **47.5/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (3 words) — no strong signal either way.
@@ -1224,7 +1224,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `c206d6d372` — target blank added on cookies policies link
-- Author: Rahul <Ashish@northerndesigns.net> — 2026-08-24T15:27:48
+- Author: Rahul — 2026-08-24T15:27:48
 - Diff size: +4/-1 across 4 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (5 lines), short message (7 words) — no strong signal either way.
@@ -1232,7 +1232,7 @@ Key signals:
 - LLM judge: not run (sampling or `--no-llm`).
 
 ### `b2608de7a0` — Initilizaton
-- Author: Radhikesh Kumar <radhikesh@cloudsteer.com> — 2026-08-24T14:18:47
+- Author: Radhikesh Kumar — 2026-08-24T14:18:47
 - Diff size: +22050/-0 across 132 file(s)
 - Heuristic score: **32.5/100**
   - *message_vs_diff_size* (25): Large diff (22050 lines) with a short message (1 words) — more typical of a human committing quickly without narrating the change.

@@ -12,7 +12,7 @@ Commits analyzed: 27
 ## Per-commit detail
 
 ### `2036b5d87f` — Gate the @claude bot on write access, not author_association (#33)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-11-13T01:01:23
+- Author: Daniel Pittman — 2026-11-13T01:01:23
 - Diff size: +36/-28 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (64 lines) paired with a detailed message (228 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -25,7 +25,7 @@ Disagreement between message and diff: The message asserts the file is byte-iden
 - Blended score: **60.2/100**
 
 ### `9ffc7308b8` — Check write access before trusting comments, PR authors and @claude (#32
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-11-13T00:35:55
+- Author: Daniel Pittman — 2026-11-13T00:35:55
 - Diff size: +129/-55 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (184 lines) paired with a detailed message (596 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -37,7 +37,7 @@ Disagreement between message and diff: The message asserts the file is byte-iden
 - Blended score: **57.2/100**
 
 ### `93108c432e` — Harden the Claude review and bot workflows (#31)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-11-12T20:49:03
+- Author: Daniel Pittman — 2026-11-12T20:49:03
 - Diff size: +226/-124 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (350 lines) paired with a detailed message (514 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -51,7 +51,7 @@ Disagreement note: The message claims a cohesive security hardening push with a 
 - Blended score: **62.2/100**
 
 ### `00b5432258` — Restrict what the Claude workflows can do and who can trigger them (#30)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-11-12T09:50:42
+- Author: Daniel Pittman — 2026-11-12T09:50:42
 - Diff size: +273/-58 across 2 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (331 lines) paired with a detailed message (55 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -63,7 +63,7 @@ Disagreement note: The message claims a cohesive security hardening push with a 
 - Blended score: **60.2/100**
 
 ### `6748dcae48` — ci: gate the review chain on the PR author, not on github.actor
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-08-28T01:53:06
+- Author: Daniel Pittman — 2026-08-28T01:53:06
 - Diff size: +10/-4 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (14 lines) but a disproportionately detailed message (292 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -76,7 +76,7 @@ Key signals: consistent multi-location conditional changes, detailed inline comm
 - Blended score: **52.2/100**
 
 ### `a528f803ce` — ci: stop the review gate passing on a review that never happened (#28)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-08-13T01:50:37
+- Author: Daniel Pittman — 2026-08-13T01:50:37
 - Diff size: +32/-0 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (32 lines) but a disproportionately detailed message (205 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -89,7 +89,7 @@ Disagreement between message and diff: The commit message frames a pragmatic fix
 - Blended score: **57.2/100**
 
 ### `a53fd715d2` — ci: drop stale observe-only footer from gate comment
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-07-03T00:35:54
+- Author: Daniel Pittman — 2026-07-03T00:35:54
 - Diff size: +6/-1 across 1 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (7 lines) but a disproportionately detailed message (53 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -100,7 +100,7 @@ Disagreement between message and diff: The commit message frames a pragmatic fix
 - Blended score: **57.2/100**
 
 ### `12a789c26f` — ci: gate verdict via --json-schema structured_output; bump action v1.0.1
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-19T22:35:10
+- Author: Daniel Pittman — 2026-06-19T22:35:10
 - Diff size: +31/-45 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (76 lines) paired with a detailed message (89 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -111,7 +111,7 @@ Disagreement between message and diff: The commit message frames a pragmatic fix
 - Blended score: **57.2/100**
 
 ### `dc51c0aa9b` — ci: pass gate verdict via job output; reliable re-run (#24)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-19T02:53:09
+- Author: Daniel Pittman — 2026-06-19T02:53:09
 - Diff size: +77/-29 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (106 lines) paired with a detailed message (134 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -125,7 +125,7 @@ Disagreement note: The commit message markets the changes as a cohesive, ‘port
 - Blended score: **57.2/100**
 
 ### `ca8cd32c2d` — ci: add the two-pass Claude-review merge gate (observe-only) (#23)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-18T22:33:39
+- Author: Daniel Pittman — 2026-06-18T22:33:39
 - Diff size: +218/-0 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (218 lines) paired with a detailed message (83 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -137,7 +137,7 @@ Disagreement note: The commit message markets the changes as a cohesive, ‘port
 - Blended score: **62.2/100**
 
 ### `43505e116e` — ci: gate the Claude review on the CI test matrix (#21)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-11T02:46:28
+- Author: Daniel Pittman — 2026-06-11T02:46:28
 - Diff size: +85/-7 across 1 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (92 lines) paired with a detailed message (165 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -150,7 +150,7 @@ Disagreement between message and diff: The commit message claims “The claude-r
 - Blended score: **62.2/100**
 
 ### `d40068f235` — ci: full lab security/CI baseline (Semgrep merge, dependabot grouping, P
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-10T21:48:39
+- Author: Daniel Pittman — 2026-06-10T21:48:39
 - Diff size: +138/-86 across 7 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (224 lines) paired with a detailed message (310 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -164,7 +164,7 @@ Disagreement between message and diff: The commit message claims a fully baselin
 - Blended score: **62.2/100**
 
 ### `1056035e95` — ci: skip Claude review and security review on dependabot PRs (#18)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-06-10T08:02:39
+- Author: Daniel Pittman — 2026-06-10T08:02:39
 - Diff size: +2/-0 across 2 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (2 lines) but a disproportionately detailed message (43 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -175,7 +175,7 @@ Disagreement between message and diff: The commit message claims a fully baselin
 - Blended score: **48.8/100**
 
 ### `3af27f9d3a` — docs: Embed social preview image at top of README (#13)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-27T08:02:30
+- Author: Daniel Pittman — 2026-05-27T08:02:30
 - Diff size: +5/-1 across 2 file(s)
 - Heuristic score: **55.0/100**
   - *message_vs_diff_size* (55): Small diff (6 lines) but a disproportionately detailed message (131 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -190,7 +190,7 @@ Key signals: centered HTML block insertion in README, minor whitespace-only diff
 - Blended score: **58.5/100**
 
 ### `503033cb41` — chore(deps-dev): Apply deferred major bumps, fix CVE in black (#11)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-27T07:55:51
+- Author: Daniel Pittman — 2026-05-27T07:55:51
 - Diff size: +51/-32 across 8 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (83 lines) paired with a detailed message (386 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -204,7 +204,7 @@ Disagreement between message and diff: The commit message claims “All whitespa
 - Blended score: **62.2/100**
 
 ### `adf877b9fd` — chore: Fix social preview aspect ratio + clean up workflow comments (#9)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-27T07:35:18
+- Author: Daniel Pittman — 2026-05-27T07:35:18
 - Diff size: +8/-8 across 6 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (16 lines) but a disproportionately detailed message (191 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -217,7 +217,7 @@ Disagreement between message and diff: The message claims regenerating an image 
 - Blended score: **57.2/100**
 
 ### `f02b763002` — feat: Add social preview image for OpenGraph link unfurl (#8)
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-27T07:35:18
+- Author: Daniel Pittman — 2026-05-27T07:35:18
 - Diff size: +0/-0 across 1 file(s)
 - Heuristic score: **67.5/100**
   - *message_vs_diff_size* (55): Small diff (0 lines) but a disproportionately detailed message (84 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -230,7 +230,7 @@ Disagreement between message and diff: The message claims regenerating an image 
 - Blended score: **67.8/100**
 
 ### `14f7b736b6` — chore(deps-dev): Bump autoflake from 2.3.1 to 2.3.3 (#4)
-- Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> — 2026-05-27T07:35:18
+- Author: dependabot[bot] — 2026-05-27T07:35:18
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **67.5/100**
   - *message_vs_diff_size* (55): Small diff (2 lines) but a disproportionately detailed message (37 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -244,7 +244,7 @@ Discrepancy note: The commit message emphasizes a straightforward bump and inclu
 - Blended score: **64.8/100**
 
 ### `3e094a13c0` — chore(deps-dev): Bump pylint from 3.3.7 to 4.0.5 (#3)
-- Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> — 2026-05-27T07:35:18
+- Author: dependabot[bot] — 2026-05-27T07:35:18
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **67.5/100**
   - *message_vs_diff_size* (55): Small diff (2 lines) but a disproportionately detailed message (37 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -255,7 +255,7 @@ Discrepancy note: The commit message emphasizes a straightforward bump and inclu
 - Blended score: **69.8/100**
 
 ### `4f1e32ab0b` — chore(deps): Bump actions/checkout from 4.2.2 to 6.0.2 (#2)
-- Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> — 2026-05-27T07:35:18
+- Author: dependabot[bot] — 2026-05-27T07:35:18
 - Diff size: +4/-4 across 4 file(s)
 - Heuristic score: **67.5/100**
   - *message_vs_diff_size* (55): Small diff (8 lines) but a disproportionately detailed message (39 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -275,7 +275,7 @@ Key signals:
 - Blended score: **64.8/100**
 
 ### `5883fd3c29` — chore(deps): Bump actions/setup-python from 5.3.0 to 6.2.0 (#1)
-- Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> — 2026-05-27T07:35:18
+- Author: dependabot[bot] — 2026-05-27T07:35:18
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **67.5/100**
   - *message_vs_diff_size* (55): Small diff (2 lines) but a disproportionately detailed message (37 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -290,7 +290,7 @@ Key signals: Dependabot authorship, semantic version bump, explicit SHA referenc
 - Blended score: **64.8/100**
 
 ### `2b92a0fac7` — chore: Bootstrap OSS hardening — CI, Claude reviews, governance, pyproje
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-27T01:00:34
+- Author: Daniel Pittman — 2026-05-27T01:00:34
 - Diff size: +639/-122 across 14 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (761 lines) paired with a detailed message (349 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -312,7 +312,7 @@ Key signals:
 - Blended score: **60.2/100**
 
 ### `e8b7dc3dd4` — fix: Move web server from port 5000 to 5001
-- Author: Daniel Pittman <daniel@pittmo.net> — 2026-05-26T23:58:52
+- Author: Daniel Pittman — 2026-05-26T23:58:52
 - Diff size: +9/-9 across 3 file(s)
 - Heuristic score: **42.5/100**
   - *message_vs_diff_size* (55): Small diff (18 lines) but a disproportionately detailed message (50 words) — could be AI-authored boilerplate, but also matches careful human commit discipline.
@@ -323,7 +323,7 @@ Key signals:
 - Blended score: **57.2/100**
 
 ### `d5b50f6668` — Update README.md
-- Author: Daniel Pittman <daniel@pittmo.net> — 2025-10-07T22:43:01
+- Author: Daniel Pittman — 2025-10-07T22:43:01
 - Diff size: +1/-1 across 1 file(s)
 - Heuristic score: **35.0/100**
   - *message_vs_diff_size* (40): Small diff (2 lines), short message (2 words) — no strong signal either way.
@@ -334,7 +334,7 @@ Key signals:
 - Blended score: **45.0/100**
 
 ### `3762630227` — feat: Complete 6-phase Rubik's Cube Solver development
-- Author: Daniel Pittman <daniel@pittmo.net> — 2025-10-05T10:01:32
+- Author: Daniel Pittman — 2025-10-05T10:01:32
 - Diff size: +12900/-108 across 48 file(s)
 - Heuristic score: **52.5/100**
   - *message_vs_diff_size* (75): Large diff (13008 lines) paired with a detailed message (902 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -349,7 +349,7 @@ Disagreement note: If one expected a tighter, more terse commit message from a h
 - Blended score: **60.2/100**
 
 ### `961542b73c` — Initial setup of repository to give starting point for LLM to use
-- Author: Daniel Pittman <daniel@pittmo.net> — 2025-09-02T01:48:55
+- Author: Daniel Pittman — 2025-09-02T01:48:55
 - Diff size: +1169/-0 across 14 file(s)
 - Heuristic score: **65.0/100**
   - *message_vs_diff_size* (75): Large diff (1169 lines) paired with a detailed message (12 words) — consistent with AI-drafted commit messages that narrate the change in full sentences.
@@ -378,7 +378,7 @@ Key signals:
 - Blended score: **63.5/100**
 
 ### `e2f0e91542` — Initial commit
-- Author: Daniel Pittman <dpittma8@msudenver.edu> — 2025-09-02T01:40:50
+- Author: Daniel Pittman — 2025-09-02T01:40:50
 - Diff size: +21/-0 across 1 file(s)
 - Heuristic score: **40.0/100**
   - *message_vs_diff_size* (40): Small diff (21 lines), short message (2 words) — no strong signal either way.
