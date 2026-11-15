@@ -9,6 +9,23 @@ from .llm_judge import JudgeResult
 
 DISAGREEMENT_THRESHOLD = 30.0
 
+# Mirrors the band definitions in llm_judge.RUBRIC, as a plain-language label
+# a non-technical reader (e.g. a recruiter) can use without knowing what the
+# number means.
+VERDICT_BANDS = [
+    (20, "Hand-Written"),
+    (50, "Mostly Human"),
+    (80, "Substantial AI Involvement"),
+    (100, "Almost Certainly AI-Generated"),
+]
+
+
+def verdict_label(score: float) -> str:
+    for upper, label in VERDICT_BANDS:
+        if score <= upper:
+            return label
+    return VERDICT_BANDS[-1][1]
+
 
 @dataclass
 class CommitScore:
@@ -23,8 +40,21 @@ def _blended_score(scored: CommitScore) -> float | None:
     return round((scored.heuristic.score + scored.judge.score) / 2, 1)
 
 
+def _overall_score(scores: list[CommitScore]) -> float:
+    per_commit = [_blended_score(s) or s.heuristic.score for s in scores]
+    return sum(per_commit) / len(per_commit)
+
+
 def render_report(scores: list[CommitScore], repo_label: str) -> str:
     lines = [f"# AI Usage Authenticity Report — {repo_label}", ""]
+
+    overall = _overall_score(scores)
+    lines.append(f"**Verdict: {verdict_label(overall)} ({overall:.1f}/100)**")
+    lines.append(
+        "_Based on commit patterns and AI judge reasoning — not a certainty. "
+        "See Known Limitations in directive.md / README.md before treating this as proof._"
+    )
+    lines.append("")
     lines.append(f"Generated {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"Commits analyzed: {len(scores)}")
     lines.append("")

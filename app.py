@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from auditor.git_extract import extract_commits, resolve_repo
 from auditor.heuristics import score_heuristics
 from auditor.llm_judge import score_with_llm
+from auditor.report import verdict_label
 
 load_dotenv()
 
@@ -121,6 +122,13 @@ if "audit_result" in st.session_state:
     rows = result["rows"]
     disagreements = result["disagreements"]
 
+    overall_score = sum(r["Combined"] for r in rows) / len(rows)
+    st.markdown(f"### Verdict: {verdict_label(overall_score)} ({overall_score:.1f}/100)")
+    st.caption(
+        "Based on commit patterns and AI judge reasoning — not a certainty. "
+        "See Known Limitations in the README before treating this as proof."
+    )
+
     st.subheader("Per-commit scores")
     st.dataframe(rows, width="stretch", hide_index=True)
 
@@ -144,9 +152,8 @@ if "audit_result" in st.session_state:
 
     st.subheader("Aggregate summary")
     judged = [r for r in rows if r["LLM Judge"] is not None]
-    overall = sum(r["Combined"] for r in rows) / len(rows)
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Overall repo score", f"{overall:.1f}/100")
+    col1.metric("Overall repo score", f"{overall_score:.1f}/100")
     col2.metric("Commits analyzed", len(rows))
     col3.metric("Commits judged by LLM", len(judged))
     col4.metric(f"Layer disagreements (>={DISAGREEMENT_THRESHOLD:.0f} pts)", disagreements)
