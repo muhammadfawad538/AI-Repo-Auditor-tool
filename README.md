@@ -62,6 +62,8 @@ audit <repo_path_or_url> [--since DATE] [--until DATE] [--sample N] [--no-llm] [
 | `--sample N` | Cap the commits sent to the LLM judge to `N`, evenly sampled. Heuristics still run on every matched commit regardless — this only controls LLM cost on large repos |
 | `--no-llm` | Heuristics only, skip the LLM judge entirely |
 | `--model` | OpenAI model id for the judge (default: `gpt-5-nano`) |
+| `--investigate` | Run the investigator agent on commits where the two layers disagree (extra API calls, about 2 per commit) |
+| `--max-investigations N` | Cap on how many disagreeing commits the agent investigates (default: 5) |
 | `--output` | Markdown report path (default: `report.md`) |
 
 Example:

@@ -51,6 +51,15 @@ Per commit, the pipeline runs:
   was for the demo recording, not because the CLI on its own wasn't
   enough.
 
+## Added later: Disagreement Investigator (opt-in)
+
+Layer disagreement used to be only flagged. With `--investigate`, a small
+tool-using agent (neighbor commits, file history, full diff, then a
+submitted verdict, capped at 6 steps) re-examines each flagged commit and
+returns a resolved score, which layer was closer, evidence and its full
+tool trail. It sometimes surfaces concrete evidence the first pass lacked
+and sometimes only confirms the judge; it is not a ground-truth oracle.
+
 ## Scoring rubric actually used for the LLM judge
 
 Each commit's diff and message go to `gpt-5-nano` (Responses API,

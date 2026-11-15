@@ -288,3 +288,46 @@ disagreement story is more visible here than on either clean extreme.
 **Next:** (what's queued for next session)
 
 -->
+
+## 2026-11-15 — Disagreement Investigator agent + privacy fix
+
+**Did:** Added `src/auditor/investigator.py`, a tool-using agent that runs
+only on commits where the heuristic and LLM-judge layers disagree by >=30
+points. Tools: `get_neighbor_commits`, `get_file_history`, `get_full_diff`,
+`submit_verdict` (OpenAI Responses API function calling, gpt-5-nano, hard
+cap of 6 steps). Wired into the CLI (`--investigate`,
+`--max-investigations`), the report (resolved score + tool trail per
+commit) and the Streamlit UI (checkbox, "Resolved (agent)" column, trail in
+the commit detail). Opt-in, because it adds API calls (~2 per commit).
+Planned first in plan mode and picked over a generic "chat with your repo"
+box, which would look like exactly the superficial AI use this tool is
+meant to catch.
+
+**AI usage:** Claude proposed the two options (investigator vs chat panel),
+I picked the investigator; Claude wrote the module and integration, I
+redirected the end-to-end test to a third-party repo
+(seanedwards/vibes) instead of my own.
+
+**Results (real runs, ~$0.001 per investigation):**
+- `f8aadede32` (Fawad-Act-angel): agent fetched the actual diff, found the
+  stray `1` after `removeEventListener`, sided with the LLM judge (30).
+  Good case: it surfaced concrete evidence.
+- `b10369975d`: mostly confirmed the judge (72). Honest read: a
+  confirmation, not a discovery.
+- seanedwards/vibes (3 investigated): 2 sided with the judge, 1 with the
+  heuristic (`5d64fc2755`, resolved 68). That last ruling's reasoning is
+  soft ("not definitive") and leaned on the heuristic's 0-second-gap
+  signal, which we already know can be wrong. Not a showcase example.
+- On that repo many commit messages literally say "Generated with Claude
+  Code", so judge and agent leaned on a declaration, not code texture.
+
+**Failed / caught:** The first CLI run of the investigator was cancelled
+and redirected by me mid-way. Separately, the generated report was
+printing every commit author's email (a stranger's on vibes); removed
+emails from `render_report` and stripped them from the existing
+`results/*.md` files. Note: emails of earlier committed reports still
+exist in git history.
+
+**Next:** Decide whether the investigator is worth showing in the Loom
+or just the verdict + legend; consider logging per-run variance of
+rulings, as with the judge.
