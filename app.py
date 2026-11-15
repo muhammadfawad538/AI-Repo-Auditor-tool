@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 
 from auditor.git_extract import extract_commits, resolve_repo
 from auditor.heuristics import score_heuristics
+from auditor.investigator import investigate_commit
 from auditor.llm_judge import score_with_llm
-from auditor.report import BAND_DESCRIPTIONS, VERDICT_BANDS, verdict_label
+from auditor.report import BAND_DESCRIPTIONS, DISAGREEMENT_THRESHOLD, VERDICT_BANDS, verdict_label
 
 load_dotenv()
 
-DISAGREEMENT_THRESHOLD = 30.0
 LOGO_PATH = "assets/must_company_logo.png"
 
 st.set_page_config(page_title="AI Usage Authenticity Auditor", layout="wide")
@@ -42,6 +42,8 @@ with st.form("audit_form"):
         "Max commits sent to the LLM judge (cost control; 0 = no limit)",
         min_value=0, value=20, step=5,
     )
+    investigate = st.checkbox("Investigate disagreements with the agent (extra API calls, ~2 per commit)")
+    max_investigations = st.number_input("Max commits to investigate", min_value=1, value=3, step=1)
     submitted = st.form_submit_button("Run Audit")
 
 if submitted:
@@ -80,13 +82,36 @@ if submitted:
             progress.progress(i / len(llm_commits))
         progress.empty()
 
+    investigations = {}
+    if investigate and judge_results:
+        flagged = [
+            c for c in commits
+            if (j := judge_results.get(c.sha)) is not None
+            and abs(heuristic_results[c.sha].score - j.score) >= DISAGREEMENT_THRESHOLD
+        ][: int(max_investigations)]
+        if not flagged:
+            st.info("No disagreeing commits to investigate.")
+        for i, c in enumerate(flagged, 1):
+            with st.spinner(f"Agent investigating {c.sha[:10]} ({i}/{len(flagged)})..."):
+                try:
+                    investigations[c.sha] = investigate_commit(
+                        c, commits, repo_path, heuristic_results[c.sha], judge_results[c.sha]
+                    )
+                except Exception as e:
+                    st.caption(f"Investigation failed on `{c.sha[:10]}`: {e}")
+
     rows = []
     disagreements = 0
     for c in commits:
         h = heuristic_results[c.sha]
         j = judge_results.get(c.sha)
         j_score = j.score if j else None
-        combined = round((h.score + j_score) / 2, 1) if j_score is not None else round(h.score, 1)
+        inv = investigations.get(c.sha)
+        resolved = inv.score if inv and inv.score is not None else None
+        if resolved is not None:
+            combined = round(resolved, 1)
+        else:
+            combined = round((h.score + j_score) / 2, 1) if j_score is not None else round(h.score, 1)
         disagree = j_score is not None and abs(h.score - j_score) >= DISAGREEMENT_THRESHOLD
         disagreements += int(disagree)
         first_line = c.message.splitlines()[0] if c.message else ""
@@ -97,6 +122,7 @@ if submitted:
             "Heuristic": round(h.score, 1),
             "LLM Judge": round(j_score, 1) if j_score is not None else None,
             "Combined": combined,
+            "Resolved (agent)": round(resolved, 1) if resolved is not None else None,
             "Reasoning": snippet,
             "Disagreement": "⚠️ Yes" if disagree else "",
         })
@@ -110,6 +136,7 @@ if submitted:
         "commits": commits,
         "heuristic_results": heuristic_results,
         "judge_results": judge_results,
+        "investigations": investigations,
         "rows": rows,
         "disagreements": disagreements,
     }
@@ -119,6 +146,7 @@ if "audit_result" in st.session_state:
     commits = result["commits"]
     heuristic_results = result["heuristic_results"]
     judge_results = result["judge_results"]
+    investigations = result["investigations"]
     rows = result["rows"]
     disagreements = result["disagreements"]
 
@@ -163,6 +191,16 @@ if "audit_result" in st.session_state:
                 st.write("**Key signals:** " + ", ".join(j_detail.key_signals))
         else:
             st.write("_LLM judge was not run for this commit._")
+        inv_detail = investigations.get(selected_commit.sha)
+        if inv_detail and inv_detail.score is not None:
+            st.write(f"**Agent ruling: {inv_detail.score:.0f}/100** (closer layer: {inv_detail.closer_layer})")
+            st.write(inv_detail.reasoning)
+            for item in inv_detail.evidence:
+                st.write(f"- Evidence: {item}")
+            st.write("**Tool trail:**")
+            for i, step in enumerate(inv_detail.steps, 1):
+                args = ", ".join(f"{k}={v}" for k, v in step["args"].items())
+                st.write(f"{i}. `{step['tool']}({args})`")
 
     st.subheader("Aggregate summary")
     judged = [r for r in rows if r["LLM Judge"] is not None]
