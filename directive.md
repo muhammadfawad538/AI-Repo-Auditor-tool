@@ -113,7 +113,21 @@ why).
     commits either way. Cost wasn't really a factor in this decision.
   - **Decision:** switched the default to `low`, since it fixes the
     contradiction and costs almost nothing extra — while being clear
-    that it does not fix the Armin Ronacher-style false positive.
+    that it does not fix the Armin Ronacher-style false positive.- **LLM-judge scores aren't fully reproducible run-to-run, even with
+  identical settings on identical input.** Re-running `minimal` a second
+  time on the same 30 Flask commits produced mostly *different* scores
+  from the first run — the Armin Ronacher commit moved 72 → 68, the
+  self-contradicting commit moved 72 → 60, and several others shifted
+  10-25 points. This is what exposed my wrong effort-tuning hypothesis
+  above, but it's a limitation in its own right: one audit run is a
+  sample, not a fixed measurement, and a repeat run on an unchanged repo
+  can come back looking visibly different. **Re-confirmed during final
+  testing**: running the Streamlit UI against the same public repo on
+  separate occasions produced 2 flagged disagreements on one run and 3
+  on another, with nothing else changed — the variance holds up under
+  continued use, not just in the original 30-commit experiment. A fairer
+  evaluation would average several repeated runs per commit rather than
+  trusting one sample.
 
 ## What I'd do with another week
 
